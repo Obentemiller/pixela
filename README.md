@@ -1,6 +1,6 @@
-# terminal_gfx — API gráfica de terminal em C++
+# PIXELA — API gráfica de terminal em C++
 
-API **header-only** (`include/terminal_gfx.hpp`), sem dependências externas
+API **header-only** (`include/pixela.hpp`), sem dependências externas
 — só a stdlib do C++17.
 
 ## Estrutura do projeto
@@ -8,7 +8,7 @@ API **header-only** (`include/terminal_gfx.hpp`), sem dependências externas
 ```
 tgfx_proj/
 ├── include/
-│   └── terminal_gfx.hpp      # a API (header-only)
+│   └── pixela.hpp      # a API (header-only)
 ├── examples/
 │   └── demo.cpp              # exemplo de animação
 ├── Makefile
@@ -46,22 +46,22 @@ g++ -std=c++17 -O2 -Iinclude examples/demo.cpp -o demo -lpthread
 ## Uso da API
 
 ```cpp
-#include "terminal_gfx.hpp"   // com -Iinclude no compilador
+#include "pixela.hpp"   // com -Iinclude no compilador
 
 int main() {
     int cols, rows;
-    tgfx::getTerminalSize(cols, rows);   // detecta tamanho do terminal
-    tgfx::enableAnsiSupport();           // necessário em terminais Windows antigos
+    pxl::getTerminalSize(cols, rows);   // detecta tamanho do terminal
+    pxl::enableAnsiSupport();           // necessário em terminais Windows antigos
 
-    tgfx::Canvas cv(cols, rows);         // resolução real: cols*2 x rows*4
+    pxl::Canvas cv(cols, rows);         // resolução real: cols*2 x rows*4
 
     cv.clear();
     cv.drawCircle(cv.width()/2, cv.height()/2, 20, false, {255, 0, 0});
     cv.drawLine(0, 0, cv.width()-1, cv.height()-1, {0, 255, 0});
     cv.drawRect(5, 5, 30, 10, true, {0, 120, 255});
 
-    tgfx::clearScreen();
-    cv.present();  // imprime o frame
+    pxl::clearScreen();
+    cv.pixelar();  // imprime o frame
 }
 ```
 
