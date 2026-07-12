@@ -76,7 +76,7 @@ int main() {
 | `drawTriangle(...)` | triângulo (contorno) |
 | `clear()` | limpa o canvas |
 | `render()` | retorna o frame como `std::string` (com códigos ANSI) |
-| `present()` | imprime o frame direto no terminal, sem piscar |
+| `pixelar()` | imprime o frame direto no terminal, sem piscar |
 | `width()/height()` | resolução real em "pixels" (cols*2, rows*4) |
 
 O `examples/demo.cpp` mostra uma animação com bola quicando, onda senoidal
