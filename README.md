@@ -1,59 +1,56 @@
-# PIXELA — API gráfica de terminal em C++
+# PIXELA — C++ Terminal Graphics API
 
-API **header-only** (`include/pixela.hpp`), sem dependências externas
-— só a stdlib do C++17.
+A **header-only** API (`include/pixela.hpp`) with no external dependencies — just the C++17 stdlib.
 
-## Estrutura do projeto
+## Project Structure
 
 ```
-tgfx_proj/
+pixela/
 ├── include/
-│   └── pixela.hpp      # a API (header-only)
+│   └── pixela.hpp        # the API (header-only)
 ├── examples/
-│   └── demo.cpp              # exemplo de animação
+│   └── demo.cpp          # animation example
 ├── Makefile
 └── README.md
+
 ```
 
-## Como funciona a resolução
+## How the Resolution Works
 
-Cada caractere **Braille** Unicode (`U+2800`–`U+28FF`) representa uma grade
-de **2×4 pontos** (8 sub-pixels). Usando esses caracteres como unidade de
-desenho em vez de um caractere "cheio" por pixel, a resolução é **8x maior**
-por célula de terminal. Um terminal de 80x24 caracteres vira uma tela de
-**160 x 96 "pixels"** reais.
+Each Unicode **Braille** character (`U+2800`–`U+28FF`) represents a **2x4 dot** grid (8 sub-pixels). By using these characters as the drawing unit instead of a "full" character per pixel, the resolution is **8x higher** per terminal cell. An 80x24 character terminal becomes a real **160 x 96 "pixel"** screen.
 
-Além disso, cada célula recebe cor **RGB verdadeira (24-bit)** via
-sequências ANSI (`\x1b[38;2;r;g;bm`).
+Furthermore, each cell receives **true RGB color (24-bit)** via ANSI escape sequences (`\x1b[38;2;r;g;bm`).
 
-## Compilar e rodar
+## Build and Run
 
-Com `make` (recomendado):
+With `make` (recommended):
 
 ```bash
-make        # compila o demo
-make run    # compila (se preciso) e executa
-make clean  # remove o binário
+make        # builds the demo
+make run    # builds (if necessary) and runs it
+make clean  # removes the binary
+
 ```
 
-Ou direto com g++:
+Or directly with g++:
 
 ```bash
 g++ -std=c++17 -O2 -Iinclude examples/demo.cpp -o demo -lpthread
-./demo      # Ctrl+C para sair
+./demo      # Ctrl+C to exit
+
 ```
 
-## Uso da API
+## API Usage
 
 ```cpp
-#include "pixela.hpp"   // com -Iinclude no compilador
+#include "pixela.hpp"   // with -Iinclude in the compiler
 
 int main() {
     int cols, rows;
-    pxl::getTerminalSize(cols, rows);   // detecta tamanho do terminal
-    pxl::enableAnsiSupport();           // necessário em terminais Windows antigos
+    pxl::getTerminalSize(cols, rows);   // detects terminal size
+    pxl::enableAnsiSupport();           // required on older Windows terminals
 
-    pxl::Canvas cv(cols, rows);         // resolução real: cols*2 x rows*4
+    pxl::Canvas cv(cols, rows);         // real resolution: cols*2 x rows*4
 
     cv.clear();
     cv.drawCircle(cv.width()/2, cv.height()/2, 20, false, {255, 0, 0});
@@ -61,23 +58,25 @@ int main() {
     cv.drawRect(5, 5, 30, 10, true, {0, 120, 255});
 
     pxl::clearScreen();
-    cv.pixelar();  // imprime o frame
+    cv.pixelar();  // prints the frame
 }
+
 ```
 
-### Funções disponíveis
+### Available Functions
 
-| Função | Descrição |
-|---|---|
-| `setPixel(x, y, on, cor)` | liga/desliga um "pixel" com cor |
-| `drawLine(x0,y0,x1,y1,cor)` | linha (Bresenham) |
-| `drawRect(x,y,w,h,preenchido,cor)` | retângulo |
-| `drawCircle(cx,cy,r,preenchido,cor)` | círculo (Bresenham) |
-| `drawTriangle(...)` | triângulo (contorno) |
-| `clear()` | limpa o canvas |
-| `render()` | retorna o frame como `std::string` (com códigos ANSI) |
-| `pixelar()` | imprime o frame direto no terminal, sem piscar |
-| `width()/height()` | resolução real em "pixels" (cols*2, rows*4) |
+| Function | Description |
+| --- | --- |
+| `setPixel(x, y, on, color)` | turns a "pixel" on/off with color |
+| `drawLine(x0,y0,x1,y1,color)` | line (Bresenham) |
+| `drawRect(x,y,w,h,filled,color)` | rectangle |
+| `drawCircle(cx,cy,r,filled,color)` | circle (Bresenham) |
+| `drawTriangle(...)` | triangle (outline) |
+| `clear()` | clears the canvas |
+| `render()` | returns the frame as a `std::string` (with ANSI codes) |
+| `pixelar()` | prints the frame directly to the terminal, flicker-free |
+| `width()/height()` | real resolution in "pixels" (cols*2, rows*4) |
 
-O `examples/demo.cpp` mostra uma animação com bola quicando, onda senoidal
-e um ponteiro girando, tudo a ~60 FPS.
+The `examples/demo.cpp` shows an animation with a bouncing ball, a sine wave, and a spinning pointer, all running at ~60 FPS.
+
+The demos were created using Claude; the code itself wasn't AI-generated, but I used the tool to add comments and create the demo examples. I recommend using it to better understand my tool and to build upon it—just give me credit, and I'll be happy.
