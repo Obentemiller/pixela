@@ -1,4 +1,4 @@
-// terminal_gfx.hpp
+// pixela.hpp
 // ------------------------------------------------------------------
 // API gráfica minimalista para terminal (C++17, apenas biblioteca padrão).
 //
@@ -15,9 +15,9 @@
 //   Terminal, Alacritty, Kitty, etc.).
 //
 // USO BÁSICO:
-//   #include "terminal_gfx.hpp"       // (ou "include/terminal_gfx.hpp")
+//   #include "pixela.hpp"       // (ou "include/pixela.hpp")
 //
-//   tgfx::Canvas cv(80, 24);           // 80x24 caracteres de terminal
+//   pxl::Canvas cv(80, 24);           // 80x24 caracteres de terminal
 //                                       // -> 160 x 96 "pixels" reais
 //   cv.clear();
 //   cv.drawCircle(80, 48, 30, false, {255, 0, 0});
@@ -43,7 +43,7 @@
   #include <unistd.h>
 #endif
 
-namespace tgfx {
+namespace PIX {
 
 struct Color {
     uint8_t r = 255, g = 255, b = 255;
@@ -228,4 +228,4 @@ private:
     size_t cellIdx(int cx, int cy) const { return static_cast<size_t>(cy) * cols_ + cx; }
 };
 
-} // namespace tgfx
+} // namespace PIX
