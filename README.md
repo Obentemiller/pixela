@@ -58,7 +58,7 @@ int main() {
     cv.drawRect(5, 5, 30, 10, true, {0, 120, 255});
 
     pxl::clearScreen();
-    cv.pixelar();  // prints the frame
+    cv.present();  // prints the frame
 }
 
 ```
