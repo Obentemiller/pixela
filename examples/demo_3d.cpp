@@ -1,7 +1,7 @@
-// demo_3d.cpp - motor 3D por software rodando sobre a terminal_gfx.hpp
+// demo_3d.cpp - motor 3D por software rodando sobre a pixela.hpp
 // -----------------------------------------------------------------------
 // Este arquivo NÃO altera a biblioteca. Ele usa apenas a API pública do
-// tgfx::Canvas (setPixel, drawLine, clear, present, width/height) para
+// pix::Canvas (setPixel, drawLine, clear, present, width/height) para
 // implementar, por cima dela, um pipeline 3D completo:
 //
 //   - Vetores/matrizes de rotação 3D
@@ -17,7 +17,7 @@
 // Executar:  ./demo3d          (Ctrl+C para sair)
 // -----------------------------------------------------------------------
 
-#include "../include/terminal_gfx.hpp"
+#include "../include/pixela.hpp"
 
 #include <vector>
 #include <cmath>
@@ -67,13 +67,13 @@ struct Tri { int a, b, c; };
 struct Mesh {
     std::vector<Vec3> verts;
     std::vector<Tri>  tris;
-    tgfx::Color        color;
+    pix::Color        color;
     Vec3               pos;              // posição no mundo
     Vec3               spin{0, 0, 0};    // velocidade angular (rad/s) por eixo
     Vec3               angle{0, 0, 0};   // ângulo atual acumulado
 };
 
-Mesh makeCube(double s, tgfx::Color col) {
+Mesh makeCube(double s, pix::Color col) {
     double h = s / 2.0;
     Mesh m; m.color = col;
     m.verts = {
@@ -91,7 +91,7 @@ Mesh makeCube(double s, tgfx::Color col) {
     return m;
 }
 
-Mesh makeIcosahedron(double r, tgfx::Color col) {
+Mesh makeIcosahedron(double r, pix::Color col) {
     Mesh m; m.color = col;
     const double t = (1.0 + std::sqrt(5.0)) / 2.0;
     std::vector<Vec3> v = {
@@ -110,7 +110,7 @@ Mesh makeIcosahedron(double r, tgfx::Color col) {
     return m;
 }
 
-Mesh makeTorus(double R, double r, int segs, int rings, tgfx::Color col) {
+Mesh makeTorus(double R, double r, int segs, int rings, pix::Color col) {
     Mesh m; m.color = col;
     m.verts.resize(static_cast<size_t>(segs) * rings);
     for (int i = 0; i < rings; ++i) {
@@ -142,7 +142,7 @@ struct Proj { double sx, sy, z; bool ok; };
 
 // Câmera fixa na origem olhando para +Z. Retorna coordenadas de tela em
 // "pixels" do canvas (não em caracteres) e a profundidade (para z-buffer).
-Proj project(const Vec3 &p, const tgfx::Canvas &cv, double focal) {
+Proj project(const Vec3 &p, const pix::Canvas &cv, double focal) {
     if (p.z <= 0.05) return {0, 0, 0, false};
     double scale = focal / p.z;
     double sx = cv.width()  / 2.0 + p.x * scale;
@@ -152,9 +152,9 @@ Proj project(const Vec3 &p, const tgfx::Canvas &cv, double focal) {
 
 // Rasteriza um triângulo preenchido com teste de z-buffer e sombreamento
 // difuso simples baseado na normal da face.
-long long fillTriangle(tgfx::Canvas &cv, std::vector<double> &zbuf,
+long long fillTriangle(pix::Canvas &cv, std::vector<double> &zbuf,
                         const Proj &p0, const Proj &p1, const Proj &p2,
-                        double intensity, tgfx::Color base) {
+                        double intensity, pix::Color base) {
     if (!p0.ok || !p1.ok || !p2.ok) return 0;
 
     int minX = static_cast<int>(std::floor(std::min({p0.sx, p1.sx, p2.sx})));
@@ -205,14 +205,14 @@ std::atomic<bool> running{true};
 void onSigint(int) { running = false; }
 
 int main() {
-    tgfx::enableAnsiSupport();
+    pix::enableAnsiSupport();
     std::signal(SIGINT, onSigint);
 
     int termCols, termRows;
-    tgfx::getTerminalSize(termCols, termRows);
+    pix::getTerminalSize(termCols, termRows);
     int hudLines = 2;                                   // linhas reservadas para o HUD
     int rows = std::max(10, termRows - hudLines - 1);
-    tgfx::Canvas cv(termCols, rows);
+    pix::Canvas cv(termCols, rows);
 
     const double focal = cv.width() * 0.9;
 
@@ -244,8 +244,8 @@ int main() {
         gridLines.push_back({{-10.0, -3.0, (double)(i + 10)}, {10.0, -3.0, (double)(i + 10)}});
     }
 
-    tgfx::clearScreen();
-    tgfx::hideCursor();
+    pix::clearScreen();
+    pix::hideCursor();
 
     const Vec3 lightDir = Vec3{0.4, 0.7, -0.5}.normalized();
 
@@ -336,7 +336,7 @@ int main() {
         std::this_thread::sleep_for(std::chrono::milliseconds(5));
     }
 
-    tgfx::showCursor();
+    pix::pixelar();
     std::cout << "\x1b[0m\n";
     return 0;
 }
