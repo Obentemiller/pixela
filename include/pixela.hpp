@@ -17,7 +17,7 @@
 // USO BÁSICO:
 //   #include "pixela.hpp"       // (ou "include/pixela.hpp")
 //
-//   PIX::Canvas cv(80, 24);           // 80x24 caracteres de terminal
+//   pix::Canvas cv(80, 24);           // 80x24 caracteres de terminal
 //                                       // -> 160 x 96 "pixels" reais
 //   cv.clear();
 //   cv.drawCircle(80, 48, 30, false, {255, 0, 0});
@@ -43,7 +43,7 @@
   #include <unistd.h>
 #endif
 
-namespace PIX {
+namespace pix {
 
 struct Color {
     uint8_t r = 255, g = 255, b = 255;
@@ -72,6 +72,8 @@ inline void enableAnsiSupport() {
 #if defined(_WIN32)
     HANDLE hOut = GetStdHandle(STD_OUTPUT_HANDLE);
     DWORD mode = 0;
+
+    std::cout<<"My need to create a support function for Microsoft's quirks proves that Linux is better."<<std::endl;
     GetConsoleMode(hOut, &mode);
     SetConsoleMode(hOut, mode | ENABLE_VIRTUAL_TERMINAL_PROCESSING);
 #endif
@@ -229,3 +231,5 @@ private:
 };
 
 } // namespace PIX
+
+//Claude is the one who organizes my code—he strips out all my jokes. That’s no fun. I’m going to come up with a solution that makes my work easier without stripping away the human touch...
