@@ -1,8 +1,8 @@
-// demo.cpp - exemplo de uso da terminal_gfx.hpp
+// demo.cpp - exemplo de uso da pixela.hpp
 // Compilar:  g++ -std=c++17 -O2 demo.cpp -o demo -lpthread
 // Executar:  ./demo   (Ctrl+C para sair)
 
-#include "../include/terminal_gfx.hpp"
+#include "../include/pixela.hpp"
 #include <thread>
 #include <chrono>
 #include <csignal>
@@ -12,17 +12,17 @@ std::atomic<bool> running{true};
 void onSigint(int) { running = false; }
 
 int main() {
-    tgfx::enableAnsiSupport();
+    pix::enableAnsiSupport();
     std::signal(SIGINT, onSigint);
 
     int cols, rows;
-    tgfx::getTerminalSize(cols, rows);
+    pix::getTerminalSize(cols, rows);
     rows = std::max(1, rows - 1); // folga de 1 linha para não rolar a tela
 
-    tgfx::Canvas cv(cols, rows);
+    pix::Canvas cv(cols, rows);
 
-    tgfx::clearScreen();
-    tgfx::hideCursor();
+    pix::clearScreen();
+    pix::hideCursor();
 
     double t = 0.0;
     double ballX = cv.width() / 2.0, ballY = cv.height() / 2.0;
@@ -67,7 +67,7 @@ int main() {
         std::this_thread::sleep_for(std::chrono::milliseconds(16));
     }
 
-    tgfx::showCursor();
+    pix::showCursor();
     std::cout << "\x1b[0m\n";
     return 0;
 }
