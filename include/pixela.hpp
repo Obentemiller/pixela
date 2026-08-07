@@ -17,7 +17,7 @@
 // USO BÁSICO:
 //   #include "pixela.hpp"       // (ou "include/pixela.hpp")
 //
-//   pxl::Canvas cv(80, 24);           // 80x24 caracteres de terminal
+//   PIX::Canvas cv(80, 24);           // 80x24 caracteres de terminal
 //                                       // -> 160 x 96 "pixels" reais
 //   cv.clear();
 //   cv.drawCircle(80, 48, 30, false, {255, 0, 0});
