@@ -336,7 +336,7 @@ int main() {
         std::this_thread::sleep_for(std::chrono::milliseconds(5));
     }
 
-    pix::pixelar();
+    pix::showCursor();
     std::cout << "\x1b[0m\n";
     return 0;
 }
