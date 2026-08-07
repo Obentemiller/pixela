@@ -47,17 +47,17 @@ g++ -std=c++17 -O2 -Iinclude examples/demo.cpp -o demo -lpthread
 
 int main() {
     int cols, rows;
-    pxl::getTerminalSize(cols, rows);   // detects terminal size
-    pxl::enableAnsiSupport();           // required on older Windows terminals
+    pix::getTerminalSize(cols, rows);   // detects terminal size
+    pix::enableAnsiSupport();           // required on older Windows terminals
 
-    pxl::Canvas cv(cols, rows);         // real resolution: cols*2 x rows*4
+    pix::Canvas cv(cols, rows);         // real resolution: cols*2 x rows*4
 
     cv.clear();
     cv.drawCircle(cv.width()/2, cv.height()/2, 20, false, {255, 0, 0});
     cv.drawLine(0, 0, cv.width()-1, cv.height()-1, {0, 255, 0});
     cv.drawRect(5, 5, 30, 10, true, {0, 120, 255});
 
-    pxl::clearScreen();
+    pix::clearScreen();
     cv.present();  // prints the frame
 }
 
@@ -74,7 +74,7 @@ int main() {
 | `drawTriangle(...)` | triangle (outline) |
 | `clear()` | clears the canvas |
 | `render()` | returns the frame as a `std::string` (with ANSI codes) |
-| `pixelar()` | prints the frame directly to the terminal, flicker-free |
+| `showCursor()` | prints the frame directly to the terminal, flicker-free |
 | `width()/height()` | real resolution in "pixels" (cols*2, rows*4) |
 
 The `examples/demo.cpp` shows an animation with a bouncing ball, a sine wave, and a spinning pointer, all running at ~60 FPS.
