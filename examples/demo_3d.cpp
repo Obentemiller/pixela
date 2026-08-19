@@ -169,7 +169,7 @@ long long fillTriangle(pix::Canvas &cv, std::vector<double> &zbuf,
     double area = (p1.sx - p0.sx) * (p2.sy - p0.sy) - (p1.sy - p0.sy) * (p2.sx - p0.sx);
     if (std::abs(area) < 1e-6) return 0;
 
-    tgfx::Color shaded{
+    pix::Color shaded{
         static_cast<uint8_t>(std::clamp(base.r * intensity, 0.0, 255.0)),
         static_cast<uint8_t>(std::clamp(base.g * intensity, 0.0, 255.0)),
         static_cast<uint8_t>(std::clamp(base.b * intensity, 0.0, 255.0))
