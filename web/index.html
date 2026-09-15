@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pixela Terminal — API Gráfica de Terminal em C++</title>
+<meta name="description" content="Ambiente web didático para desenvolver animações e shaders em um terminal, usando a biblioteca gráfica pixela.hpp (C++) executada inteiramente no navegador do usuário." />
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' https://cdn.jsdelivr.net 'wasm-unsafe-eval'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none';" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header id="topbar">
+    <div id="brand">
+      <span class="brand-glyph">▓▒░</span>
+      <h1>PIXELA<span class="dim">// Terminal Graphics Engine</span></h1>
+    </div>
+
+    <div id="controls">
+      <label for="exampleSelect" class="sr-only">Exemplo</label>
+      <select id="exampleSelect">
+        <optgroup label="Interpretado (edite e rode)">
+          <option value="hello">Hello Pixela</option>
+          <option value="plasma">Plasma (interpretado)</option>
+          <option value="bounce">Bola Quicando</option>
+          <option value="starfield">Campo de Estrelas</option>
+          <option value="wireframecube">Cubo 3D Giratório (wireframe)</option>
+          <option value="scene3d">Cena 3D Completa (estrelas + chão + 3 sólidos)</option>
+          <option value="saturn">Saturno (planeta + anéis + lua, interpretado)</option>
+        </optgroup>
+        <optgroup label="WASM nativo — pixela.hpp compilado">
+          <option value="wasm:volumetric">Shader Volumétrico (raymarching)</option>
+          <option value="wasm:mesh3d">Motor 3D (torus + icosaedro)</option>
+          <option value="wasm:particles">Sistema de Partículas</option>
+        </optgroup>
+      </select>
+
+      <button id="runBtn" title="Executar (Ctrl+Enter)">▶ Executar</button>
+      <button id="stopBtn" title="Parar execução" disabled>■ Parar</button>
+
+      <span id="perf">
+        <span id="fps">FPS: --</span>
+        <span id="grid-size">Grade: --x--</span>
+      </span>
+    </div>
+  </header>
+
+  <main id="workspace">
+
+    <!-- ============ TERMINAL / VIEWPORT ============ -->
+    <section id="terminal-pane" aria-label="Saída do terminal gráfico">
+      <div id="terminal-container">
+        <canvas id="terminal-canvas"></canvas>
+      </div>
+      <div id="status-bar">
+        <span id="status-msg">Pronto.</span>
+        <span id="engine-mode">Motor: —</span>
+      </div>
+    </section>
+
+    <!-- ============ EDITOR (retângulo vertical à direita) ============ -->
+    <aside id="editor-pane" aria-label="Editor de script">
+      <div id="editor-header">
+        <span>main.cpp</span>
+        <button id="resetBtn" title="Restaurar exemplo original">↺ reset</button>
+      </div>
+
+      <textarea id="code-editor" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off"></textarea>
+
+      <div id="console-header">console</div>
+      <div id="console-output" role="log" aria-live="polite"></div>
+    </aside>
+
+  </main>
+
+  <footer id="footer">
+    <span>Pixela Terminal — projeto didático de código aberto. Toda a execução ocorre localmente no seu navegador.</span>
+    <a href="https://github.com/Obentemiller" id="repoLink" target="_blank" rel="noopener noreferrer">Github/Obentemiller</a>
+  </footer>
+
+<!-- Interpretador C++ em JavaScript (executa 100% no cliente)
+     Fixado no commit SHA (não na branch "gh-pages", que é mutável) +
+     Subresource Integrity: se o arquivo servido não bater byte a byte com
+     o hash abaixo, o navegador recusa executar o script. -->
+  <script
+    src="https://cdn.jsdelivr.net/gh/felixhao28/JSCPP@76e3534f04abf9c2547aa73ddca275e8935bed38/dist/JSCPP.es5.min.js"
+    integrity="sha384-TJXPSuYSlLJNmo5PI0hFC8SkaYMhDllEmYJenSHy+3I1sxgnGtUT3IfNngvujMGX"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"></script>
+
+  <script src="js/terminal.js"></script>
+  <script src="js/pixela-bindings.js"></script>
+  <script src="js/mesh3d.js"></script>
+  <script src="js/ansi-parser.js"></script>
+  <script src="js/interpreter.js"></script>
+  <script src="js/wasm-loader.js"></script>
+  <script src="js/examples.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

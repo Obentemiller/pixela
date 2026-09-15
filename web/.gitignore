@@ -1,0 +1,8 @@
+# Artefatos de build do Emscripten (regerados sempre a partir de src/*.cpp
+# pelo build.sh / .github/workflows/deploy.yml — não devem ser commitados
+# "às cegas": um binário compilado não é revisável num `git diff`).
+wasm/*.js
+wasm/*.wasm
+
+# Mantém a pasta no git mesmo com o conteúdo acima ignorado.
+!wasm/.gitkeep
