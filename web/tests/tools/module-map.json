@@ -1,0 +1,55 @@
+{
+  "_comment": "Mapa módulo -> arquivos de teste que o cobrem. Mantido à mão e revisado a cada commit. Um teste pode cobrir vários módulos; a soma por ARQUIVO DE TESTE (não por módulo) é que deve bater com o total de `npm test`. `preprocessor` inclui tambem o grupo `relatorios`: `verify-reports.test.js` nao mede o Preprocessor, e o manifesto de `reports/`, cujo defeito (o manifesto listava o proprio hash) nao era visivel em nenhum outro teste.",
+  "lexer": [
+    "tests/unit/lexer.test.js",
+    "tests/unit/literal-type.test.js",
+    "tests/unit/fuzz.test.js",
+    "tests/unit/bench.test.js"
+  ],
+  "preprocessor": [
+    "tests/unit/preprocessor.test.js",
+    "tests/unit/preludio.test.js",
+    "tests/unit/pp-inc.test.js",
+    "tests/unit/pp-ordem-busca.test.js",
+    "tests/unit/verify-reports.test.js",
+    "tests/unit/pp-hideset.test.js"
+  ],
+  "source": [
+    "tests/unit/source.test.js",
+    "tests/unit/source.prop.test.js"
+  ],
+  "diagnostics": [
+    "tests/unit/diagnostics.test.js",
+    "tests/unit/diagnostics-snapshot.test.js"
+  ],
+  "ast": [
+    "tests/unit/ast.test.js"
+  ],
+  "parser": [
+    "tests/unit/parser.test.js",
+    "tests/unit/parser-fuzz.test.js",
+    "tests/unit/roundtrip-projeto.test.js",
+    "tests/unit/projeto.test.js",
+    "tests/unit/goldens.test.js",
+    "tests/unit/parser-type-nome.test.js"
+  ],
+  "types": [
+    "tests/unit/types.test.js"
+  ],
+  "scope": [
+    "tests/unit/scope.test.js"
+  ],
+  "sema": [
+    "tests/unit/caracterizacao-sema-codegen.test.js"
+  ],
+  "codegen": [
+    "tests/unit/caracterizacao-sema-codegen.test.js"
+  ],
+  "core": [],
+  "worker": [
+    "tests/platform/spec-t1-t2-t7.spec.js",
+    "tests/platform/spec-t4-t6.spec.js",
+    "tests/e2e/regressao-app.spec.js",
+    "tests/e2e/browser-version.spec.js"
+  ]
+}

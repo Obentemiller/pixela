@@ -1,0 +1,2 @@
+// comentário
+int x; // outro

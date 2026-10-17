@@ -1,0 +1,9 @@
+{
+  "umaVez": [
+    "struct Color { int r, g, b; };",
+    "inline void limpar() {}"
+  ],
+  "nunca": [
+    "DECOY"
+  ]
+}

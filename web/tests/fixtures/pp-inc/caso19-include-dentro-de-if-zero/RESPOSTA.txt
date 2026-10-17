@@ -1,0 +1,1 @@
+Include dentro de `#if 0`: NÃO resolve — o bloco nunca é processado, e o header ausente não gera erro.

@@ -1,0 +1,1 @@
+Ciclo COM include guard: nao e erro, porque o guard segura a segunda entrada. O erro de ciclo so aparece quando o guard nao segura.

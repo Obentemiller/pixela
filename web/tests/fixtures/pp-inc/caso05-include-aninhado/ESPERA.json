@@ -1,0 +1,6 @@
+{
+  "umaVez": [
+    "int comum();",
+    "int usa() { return comum(); }"
+  ]
+}

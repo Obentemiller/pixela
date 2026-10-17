@@ -1,0 +1,122 @@
+{
+  "kind": "TranslationUnit",
+  "decls": [
+    {
+      "kind": "FunctionDecl",
+      "specifiers": [
+        "void"
+      ],
+      "declarator": {
+        "kind": "Declarator",
+        "name": "f",
+        "ptr": [],
+        "array": [],
+        "params": [],
+        "temParams": true,
+        "cvConst": false,
+        "cvVolatile": false,
+        "refQual": null,
+        "inner": null,
+        "virt": null,
+        "packs": false,
+        "default": null,
+        "init": null,
+        "defaultDelete": null,
+        "tipoNoDeclarador": false,
+        "temSufixoAntes": false,
+        "absAntesDoNome": false,
+        "baseInit": null
+      },
+      "body": {
+        "kind": "CompoundStmt",
+        "stmts": [
+          {
+            "kind": "ForStmt",
+            "init": {
+              "kind": "DeclStmt",
+              "decl": {
+                "kind": "VariableDecl",
+                "specifiers": [
+                  "int"
+                ],
+                "declarators": [
+                  {
+                    "kind": "Declarator",
+                    "name": "i",
+                    "ptr": [],
+                    "array": [],
+                    "params": [],
+                    "temParams": false,
+                    "cvConst": false,
+                    "cvVolatile": false,
+                    "refQual": null,
+                    "inner": null,
+                    "virt": null,
+                    "packs": false,
+                    "default": null,
+                    "init": null,
+                    "defaultDelete": null,
+                    "tipoNoDeclarador": false,
+                    "temSufixoAntes": false,
+                    "absAntesDoNome": false
+                  }
+                ],
+                "init": {
+                  "kind": "Literal",
+                  "value": 0,
+                  "literalKind": "int",
+                  "text": "0"
+                }
+              }
+            },
+            "cond": {
+              "kind": "Binary",
+              "op": "<",
+              "left": {
+                "kind": "Identifier",
+                "name": "i"
+              },
+              "right": {
+                "kind": "Literal",
+                "value": 10,
+                "literalKind": "int",
+                "text": "10"
+              }
+            },
+            "update": {
+              "kind": "Unary",
+              "op": "++",
+              "expr": {
+                "kind": "Identifier",
+                "name": "i"
+              },
+              "prefix": true
+            },
+            "body": {
+              "kind": "CompoundStmt",
+              "stmts": [
+                {
+                  "kind": "ExprStmt",
+                  "expr": {
+                    "kind": "Call",
+                    "callee": {
+                      "kind": "Identifier",
+                      "name": "g"
+                    },
+                    "args": [
+                      {
+                        "kind": "Identifier",
+                        "name": "i"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "templateParams": []
+    }
+  ]
+}

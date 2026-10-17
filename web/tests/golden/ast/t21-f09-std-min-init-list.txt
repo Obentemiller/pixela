@@ -1,0 +1,1 @@
+int f(Proj a, Proj b, Proj c){return std::min({a.sx, b.sx, c.sx});}

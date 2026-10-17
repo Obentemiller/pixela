@@ -1,0 +1,3 @@
+/* bloco
+multilinha */
+int x;

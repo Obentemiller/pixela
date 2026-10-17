@@ -1,0 +1,1 @@
+bool f(int a, int b) { return a < b && b > a || a == b; }

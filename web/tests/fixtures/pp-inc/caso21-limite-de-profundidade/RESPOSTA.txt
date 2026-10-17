@@ -1,0 +1,1 @@
+Limite de profundidade: uma cadeia de 205 includes tem de ser recusada com "Profundidade de include excedida (200)". O g++ tem o mesmo limite (-fmax-... / o guardião de include) e também recusa.

@@ -1,0 +1,3 @@
+int a[2] = {1, 2};
+struct S { int x, y; }; S s{1, 2};
+S t = {5};

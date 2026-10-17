@@ -1,0 +1,148 @@
+{
+  "kind": "TranslationUnit",
+  "decls": [
+    {
+      "kind": "TemplateDecl",
+      "params": [
+        {
+          "kind": "Declarator",
+          "name": "T",
+          "ptr": [],
+          "array": [],
+          "params": [],
+          "temParams": false,
+          "cvConst": false,
+          "cvVolatile": false,
+          "refQual": null,
+          "inner": null,
+          "virt": null,
+          "packs": false,
+          "default": null,
+          "init": null,
+          "defaultDelete": null,
+          "tipoNoDeclarador": false,
+          "temSufixoAntes": false,
+          "absAntesDoNome": false
+        }
+      ],
+      "decl": {
+        "kind": "FunctionDecl",
+        "specifiers": [
+          "T"
+        ],
+        "declarator": {
+          "kind": "Declarator",
+          "name": "max",
+          "ptr": [],
+          "array": [],
+          "params": [
+            {
+              "kind": "VariableDecl",
+              "specifiers": [
+                "T"
+              ],
+              "declarators": [
+                {
+                  "kind": "Declarator",
+                  "name": "a",
+                  "ptr": [],
+                  "array": [],
+                  "params": [],
+                  "temParams": false,
+                  "cvConst": false,
+                  "cvVolatile": false,
+                  "refQual": null,
+                  "inner": null,
+                  "virt": null,
+                  "packs": false,
+                  "default": null,
+                  "init": null,
+                  "defaultDelete": null,
+                  "tipoNoDeclarador": false,
+                  "temSufixoAntes": false,
+                  "absAntesDoNome": false
+                }
+              ],
+              "init": null
+            },
+            {
+              "kind": "VariableDecl",
+              "specifiers": [
+                "T"
+              ],
+              "declarators": [
+                {
+                  "kind": "Declarator",
+                  "name": "b",
+                  "ptr": [],
+                  "array": [],
+                  "params": [],
+                  "temParams": false,
+                  "cvConst": false,
+                  "cvVolatile": false,
+                  "refQual": null,
+                  "inner": null,
+                  "virt": null,
+                  "packs": false,
+                  "default": null,
+                  "init": null,
+                  "defaultDelete": null,
+                  "tipoNoDeclarador": false,
+                  "temSufixoAntes": false,
+                  "absAntesDoNome": false
+                }
+              ],
+              "init": null
+            }
+          ],
+          "temParams": true,
+          "cvConst": false,
+          "cvVolatile": false,
+          "refQual": null,
+          "inner": null,
+          "virt": null,
+          "packs": false,
+          "default": null,
+          "init": null,
+          "defaultDelete": null,
+          "tipoNoDeclarador": false,
+          "temSufixoAntes": false,
+          "absAntesDoNome": false,
+          "baseInit": null
+        },
+        "body": {
+          "kind": "CompoundStmt",
+          "stmts": [
+            {
+              "kind": "ReturnStmt",
+              "expr": {
+                "kind": "Ternary",
+                "cond": {
+                  "kind": "Binary",
+                  "op": ">",
+                  "left": {
+                    "kind": "Identifier",
+                    "name": "a"
+                  },
+                  "right": {
+                    "kind": "Identifier",
+                    "name": "b"
+                  }
+                },
+                "then": {
+                  "kind": "Identifier",
+                  "name": "a"
+                },
+                "other": {
+                  "kind": "Identifier",
+                  "name": "b"
+                }
+              }
+            }
+          ]
+        },
+        "templateParams": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "kind": "TranslationUnit",
+  "decls": [
+    {
+      "kind": "UsingDecl",
+      "name": "vector",
+      "qualified": "std::vector",
+      "alias": null
+    },
+    {
+      "kind": "UsingDecl",
+      "name": "std",
+      "qualified": "std",
+      "alias": null
+    },
+    {
+      "kind": "UsingDecl",
+      "name": "Alias",
+      "qualified": null,
+      "alias": {
+        "kind": "TypeId",
+        "expr": {
+          "kind": "Declarator",
+          "name": null,
+          "ptr": [],
+          "array": [],
+          "params": [],
+          "temParams": false,
+          "cvConst": false,
+          "cvVolatile": false,
+          "refQual": null,
+          "inner": null,
+          "virt": null,
+          "packs": false,
+          "default": null,
+          "init": null,
+          "defaultDelete": null,
+          "tipoNoDeclarador": false,
+          "specifierText": "int",
+          "specifiers": [
+            "int"
+          ]
+        },
+        "isType": true
+      }
+    }
+  ]
+}

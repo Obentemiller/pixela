@@ -1,0 +1,25 @@
+{
+  "kind": "TranslationUnit",
+  "decls": [
+    {
+      "kind": "EnumDecl",
+      "specifiers": [
+        "enum",
+        "class"
+      ],
+      "name": "E",
+      "enumerators": [
+        {
+          "kind": "Enumerator",
+          "name": "A",
+          "value": null
+        },
+        {
+          "kind": "Enumerator",
+          "name": "B",
+          "value": null
+        }
+      ]
+    }
+  ]
+}

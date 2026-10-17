@@ -1,0 +1,2 @@
+struct D : public B { int x; };
+struct E : private B, public C {};

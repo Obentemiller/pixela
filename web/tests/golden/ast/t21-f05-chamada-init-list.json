@@ -1,0 +1,73 @@
+{
+  "kind": "TranslationUnit",
+  "decls": [
+    {
+      "kind": "FunctionDecl",
+      "specifiers": [
+        "void"
+      ],
+      "declarator": {
+        "kind": "Declarator",
+        "name": "f",
+        "ptr": [],
+        "array": [],
+        "params": [],
+        "temParams": true,
+        "cvConst": false,
+        "cvVolatile": false,
+        "refQual": null,
+        "inner": null,
+        "virt": null,
+        "packs": false,
+        "default": null,
+        "init": null,
+        "defaultDelete": null,
+        "tipoNoDeclarador": false,
+        "temSufixoAntes": false,
+        "absAntesDoNome": false,
+        "baseInit": null
+      },
+      "body": {
+        "kind": "CompoundStmt",
+        "stmts": [
+          {
+            "kind": "ExprStmt",
+            "expr": {
+              "kind": "Call",
+              "callee": {
+                "kind": "Identifier",
+                "name": "g"
+              },
+              "args": [
+                {
+                  "kind": "InitList",
+                  "elements": [
+                    {
+                      "kind": "Literal",
+                      "value": 1,
+                      "literalKind": "int",
+                      "text": "1"
+                    },
+                    {
+                      "kind": "Literal",
+                      "value": 2,
+                      "literalKind": "int",
+                      "text": "2"
+                    },
+                    {
+                      "kind": "Literal",
+                      "value": 3,
+                      "literalKind": "int",
+                      "text": "3"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "templateParams": []
+    }
+  ]
+}

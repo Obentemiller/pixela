@@ -1,0 +1,84 @@
+{
+  "kind": "TranslationUnit",
+  "decls": [
+    {
+      "kind": "EnumDecl",
+      "specifiers": [
+        "enum"
+      ],
+      "name": "E",
+      "enumerators": [
+        {
+          "kind": "Enumerator",
+          "name": "A",
+          "value": null
+        }
+      ]
+    },
+    {
+      "kind": "FunctionDecl",
+      "specifiers": [
+        "void"
+      ],
+      "declarator": {
+        "kind": "Declarator",
+        "name": "f",
+        "ptr": [],
+        "array": [],
+        "params": [],
+        "temParams": true,
+        "cvConst": false,
+        "cvVolatile": false,
+        "refQual": null,
+        "inner": null,
+        "virt": null,
+        "packs": false,
+        "default": null,
+        "init": null,
+        "defaultDelete": null,
+        "tipoNoDeclarador": false,
+        "temSufixoAntes": false,
+        "absAntesDoNome": false,
+        "baseInit": null
+      },
+      "body": {
+        "kind": "CompoundStmt",
+        "stmts": [
+          {
+            "kind": "DeclStmt",
+            "decl": {
+              "kind": "VariableDecl",
+              "specifiers": [
+                "E"
+              ],
+              "declarators": [
+                {
+                  "kind": "Declarator",
+                  "name": "v",
+                  "ptr": [],
+                  "array": [],
+                  "params": [],
+                  "temParams": false,
+                  "cvConst": false,
+                  "cvVolatile": false,
+                  "refQual": null,
+                  "inner": null,
+                  "virt": null,
+                  "packs": false,
+                  "default": null,
+                  "init": null,
+                  "defaultDelete": null,
+                  "tipoNoDeclarador": false,
+                  "temSufixoAntes": false,
+                  "absAntesDoNome": false
+                }
+              ],
+              "init": null
+            }
+          }
+        ]
+      },
+      "templateParams": []
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "kind": "TranslationUnit",
+  "decls": [
+    {
+      "kind": "ClassDecl",
+      "specifiers": [
+        "struct"
+      ],
+      "name": "S",
+      "members": [
+        {
+          "kind": "VariableDecl",
+          "specifiers": [
+            "static",
+            "const",
+            "int"
+          ],
+          "declarators": [
+            {
+              "kind": "Declarator",
+              "name": "N",
+              "ptr": [],
+              "array": [],
+              "params": [],
+              "temParams": false,
+              "cvConst": false,
+              "cvVolatile": false,
+              "refQual": null,
+              "inner": null,
+              "virt": null,
+              "packs": false,
+              "default": null,
+              "init": null,
+              "defaultDelete": null,
+              "tipoNoDeclarador": false,
+              "temSufixoAntes": false,
+              "absAntesDoNome": false
+            }
+          ],
+          "init": {
+            "kind": "Literal",
+            "value": 10,
+            "literalKind": "int",
+            "text": "10"
+          }
+        }
+      ],
+      "tagKind": "struct",
+      "bases": []
+    }
+  ]
+}

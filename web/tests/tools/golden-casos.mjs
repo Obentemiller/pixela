@@ -1,0 +1,138 @@
+/**
+ * tests/tools/golden-casos.mjs — o CORPUS de goldens.
+ *
+ * Vive em arquivo próprio, e não dentro de `gen-goldens.mjs`, porque o
+ * `tests/unit/goldens.test.js` precisa de `CASOS` — e `importar` o gerador
+ * roda o gerador, que chama `process.exit` e mata a suíte de testes.
+ *
+ * Um caso por construção: é o que faz o diff do golden dizer QUAL construção
+ * mudou, em vez de "algo no arquivo 47".
+ */
+export const CASOS = {
+  // --- T2.1: as 18 formas da ordem. Cada uma vira um golden próprio para
+  // que o diff diga QUAL construção mudou. Ver `tests/unit/t21-formas.test.js`,
+  // que roda as 18 como `test()` individuais dentro de `npm test`.
+  't21-f01-array2d-constexpr': 'constexpr int kBrailleBit[2][4] = { {0,1,2,6}, {3,4,5,7} };',
+  't21-f02-array2d-virgula-final': 'int a[2][2] = {{1,2},{3,4},};',
+  't21-f03-array-vazio': 'int a[3] = {};',
+  't21-f04-array2d-tres-linhas': 'int a[2][3] = {{1,2},{3,4},{5,6}};',
+  't21-f05-chamada-init-list': 'void f() { g({1,2,3}); }',
+  't21-f06-operator-mais-retorno': 'struct Vec3 { double x, y, z; };\nVec3 operator+(const Vec3 &o) const { return {x + o.x, y + o.y, z + o.z}; }',
+  't21-f07-return-init-list': 'int f() { return {a + b, c + d}; }',
+  't21-f08-template-id-aninhado': 'auto v = std::vector<std::vector<int>>{{1,2},{3}};',
+  't21-f09-std-min-init-list': 'int f(Proj a, Proj b, Proj c) { return std::min({a.sx, b.sx, c.sx}); }',
+  't21-f10-cross-retorno': 'struct Vec3 { double x, y, z; };\nVec3 cross(const Vec3 &o) const { return {y * o.z - z * o.y, z * o.x - x * o.z, x * o.y - y * o.x}; }',
+  't21-f11-brace-init-color': 'struct C { C(int a, int b); };\nint f() { return Color{255,255,255}.a; }',
+  't21-f12-direct-list-init': 'struct T { T(); };\nvoid f() { T x{}; }',
+  't21-f13-lista-com-igual': 'struct T { T(); T(int); };\nvoid f() { T x = {}; }',
+  't21-f14-atribuicao-init-list': 'struct T { T(); T& operator=(const T&); };\nvoid f(T x) { x = {1, 2}; }',
+  't21-f15-new-array-init': 'void f() { int *p = new int[3]{1,2,3}; }',
+  't21-f16-new-ctor': 'struct T { T(int); };\nvoid f() { T *a = new T(1); T *b = new T{1}; }',
+  't21-f17-membro-init': 'struct T { int x{0}; int y = 0; };',
+  't21-f18-mem-initializer': 'struct T { T() : x{1}, y(2) {} int x, y; };',
+  // --- T2.3: as duas formas de linkage
+  't23-linkage-forma-unica': 'extern "C" void f(){}',
+  't23-linkage-bloco': 'extern "C" { void f(){} void g(){} }',
+  // --- P6: TypeNameScope
+  'p6-tipo-declarado': 'struct T {}; void f() { T x{}; }',
+  'p6-template-param': 'template<class T> void g() { T x{}; }',
+  'p6-using-alias': 'using U = int; void f() { U * p; }',
+  'p6-typedef-tipo': 'typedef int I; void f() { I v; }',
+  'p6-enum-tipo': 'enum E { A }; void f() { E v; }',
+  'var-simples': 'int x;',
+  'var-inicializada': 'int x = 42;',
+  'var-multiplos': 'int a = 1, b = 2, c;',
+  'var-ponteiro': 'int* p;\nconst int* const cp = p;',
+  'var-referencia': 'int& r = x;\nconst int& cr = x;\nint&& rr = std::move(x);',
+  'var-array': 'int arr[10];\nint m[2][3];\nint v[] = {1, 2, 3};',
+  'var-auto': 'auto x = 42;\nauto& r = x;\nconst auto& cr = x;',
+  'var-typedef': 'typedef int I;\ntypedef int* P;\nusing A = int;\nusing B = int*;',
+
+  'func-simples': 'int f() { return 1; }',
+  'func-parametros': 'int soma(int a, int b) { return a + b; }',
+  'func-void': 'void f() {}',
+  'func-const': 'int f() const;',
+  'func-noexcept': 'void f() noexcept;',
+  'func-ponteiro-retorno': 'int* f();\nint& g();',
+  'func-ptr-funcao': 'int (*f)(int, char);',
+  'func-static-inline': 'static inline int f() { return 1; }',
+  'func-default-delete': 'struct S { S() = default; S(const S&) = delete; };',
+
+  'classe-simples': 'struct S { int x; };',
+  'classe-metodos': 'struct S { int x; int get() { return x; } void set(int v) { x = v; } };',
+  'classe-acesso': 'class C { public: int a; private: int b; protected: int c; };',
+  'classe-heranca': 'struct D : public B { int x; };\nstruct E : private B, public C {};',
+  'classe-construtor': 'class C { public: C() {} C(int x) : x_(x) {} private: int x_; };',
+  'classe-destrutor': 'class C { public: virtual ~C() {} };',
+  'classe-virtual': 'class C { public: virtual void m() {} };',
+  'classe-bitfield': 'struct S { int a : 1; int b : 3; };',
+  'classe-conversao': 'struct S { operator int() { return 1; } };',
+  'classe-static-const': 'struct S { static const int N = 10; };',
+
+  'enum-simples': 'enum E { A, B, C };',
+  'enum-valores': 'enum E { A = 1, B = 2, C = 10 };',
+  'enum-class': 'enum class E { A, B };',
+  'enum-class-base': 'enum class E : int { A = 1 };',
+
+  'namespace-simples': 'namespace n { int a; }',
+  'namespace-anonimo': 'namespace { int a; }',
+  'namespace-aninhado': 'namespace n { namespace m { int a; } }',
+  'namespace-inline': 'namespace n { int a; }',
+  'using-declaracao': 'using std::vector;\nusing namespace std;\nusing Alias = int;',
+
+  'template-funcao': 'template<typename T> T max(T a, T b) { return a > b ? a : b; }',
+  'template-classe': 'template<typename T> struct V { T* p; };',
+  'template-dois-params': 'template<typename T, typename U> void f(T a, U b);',
+  'template-valor': 'template<int N> struct Arr { int a[N]; };',
+  'template-aninhado': 'template<typename T> struct V { T x; }; V<int>* p;',
+
+  'expr-aritmetica': 'int f() { return 1 + 2 * 3 - 4 / 5 % 6; }',
+  'expr-logica': 'bool f(int a, int b) { return a < b && b > a || a == b; }',
+  'expr-bitshift': 'int f() { return 1 << 2 | 3 >> 4 & 5 ^ 6; }',
+  'expr-ternario': 'int f(int a) { return a ? 1 : 2; }',
+  'expr-ternario-aninhado': 'int f(int a) { return a ? a ? 1 : 2 : 3; }',
+  'expr-atribuicao': 'void f(int& a) { a += 1; a -= 1; a *= 2; a /= 2; a %= 2; a <<= 1; a >>= 1; a &= 1; a |= 1; a ^= 1; }',
+  'expr-incremento': 'void f(int& i) { ++i; i++; --i; i--; }',
+  'expr-virgula': 'int f() { int a = 1, b = 2; return (a, b); }',
+  'expr-membro': 'struct S { int x; }; int f(S s) { return s.x; }',
+  'expr-ponteiro-membro': 'struct S { int x; }; int f(S* s) { return s->x; }',
+  'expr-ponteiro-membro-estrela': 'struct S { int x; }; int f(S* s) { return s.*(&S::x); }',
+  'expr-index': 'int f(int* a, int i) { return a[i] + a[0]; }',
+  'expr-chamada': 'int g(int); int f() { return g(1) + g(2, 3); }',
+  'expr-sizeof': 'int f() { return sizeof(int) + sizeof x; }',
+  'expr-alignof': 'int f() { return alignof(int); }',
+  'expr-typeid': 'struct S {}; int f(S s) { return typeid(s) == typeid(S); }',
+  'expr-typeid-tipo': 'int f() { return sizeof(typeid(int)); }',
+  'expr-new-delete': 'void f(int n) { int* p = new int[n]; delete[] p; int* q = new int(1); delete q; }',
+  'expr-cast-c': 'int f(double d) { return (int)d; }',
+  'expr-cast-nomeado': 'int f(double d) { return static_cast<int>(d); }',
+  'expr-ponto-e-virgula': 'int g(); int f() { g(); return 0; }',
+  'expr-qualificado': 'struct S { static int f(); }; int g() { return S::f(); }',
+
+  'init-list': 'int a[2] = {1, 2};\nstruct S { int x, y; }; S s{1, 2};\nS t = {5};',
+  'string-adjacentes': 'const char* s = "a" "b" "c";',
+  'literal-escapes': 'char a = \'\\n\';\nchar b = \'\\x41\';\nconst char* c = "tab\\there";',
+  'literal-bases': 'int a = 0x1F;\nint b = 077;\nint c = 0b1010;\nint d = 1\'000;\nunsigned e = 42u;\nlong f = 42L;',
+
+  'lambda-simples': 'int f() { auto l = [](int x) { return x; }; return l(1); }',
+  'lambda-capturas': 'int f() { auto a = [=] { return 1; }; auto b = [&] { return 2; }; auto c = [this] { return 3; }; return a() + b() + c(); }',
+  'lambda-mutable': 'int f() { auto l = [](int x) mutable { return x; }; return l(1); }',
+  'lambda-retorno': 'int f() { auto l = [](int x) -> int { return x; }; return l(1); }',
+
+  'stmt-if': 'void f(int a) { if (a) g(); if (a) { g(); } if (a) g(); else h(); }',
+  'stmt-if-else-if': 'void f(int a) { if (a) g(); else if (b) h(); else i(); }',
+  'stmt-while': 'void f() { while (a) { b(); } }',
+  'stmt-do': 'void f() { do { b(); } while (a); }',
+  'stmt-for': 'void f() { for (int i = 0; i < 10; ++i) { g(i); } }',
+  'stmt-for-vazio': 'void f() { for (;;) { break; } }',
+  'stmt-for-range': 'void f(V<int>& v) { for (int x : v) { g(x); } }',
+  'stmt-switch': 'int f(int a) { switch (a) { case 1: return 1; case 2: return 2; default: return 0; } }',
+  'stmt-switch-bloco': 'int f(int a) { switch (a) { case 1: { break; } default: break; } return 0; }',
+  'stmt-break-continue': 'void f() { while (a) { if (b) break; else continue; } }',
+  'stmt-return': 'int f() { return 1; }\nvoid g() { return; }',
+  'stmt-bloco-aninhado': 'void f() { { int a = 1; a++; } }',
+  'stmt-static-assert': 'static_assert(sizeof(int) == 4);\nstatic_assert(true, "ok");',
+
+  'atribuicao-membro-lista': 'class C { public: C() : x_(1), y_{2} {} int x_, y_; };',
+  'declaracao-multipla-linha': 'int a = 1;\nint b = 2;\nvoid f();\nstruct S {};\nnamespace n { int c; }',
+};

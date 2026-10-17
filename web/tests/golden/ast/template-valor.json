@@ -1,0 +1,95 @@
+{
+  "kind": "TranslationUnit",
+  "decls": [
+    {
+      "kind": "TemplateDecl",
+      "params": [
+        {
+          "kind": "Declarator",
+          "name": "int",
+          "ptr": [],
+          "array": [],
+          "params": [],
+          "temParams": false,
+          "cvConst": false,
+          "cvVolatile": false,
+          "refQual": null,
+          "inner": null,
+          "virt": null,
+          "packs": false,
+          "default": null,
+          "init": null,
+          "defaultDelete": null,
+          "tipoNoDeclarador": false,
+          "temSufixoAntes": false,
+          "absAntesDoNome": false
+        },
+        {
+          "kind": "Declarator",
+          "name": "N",
+          "ptr": [],
+          "array": [],
+          "params": [],
+          "temParams": false,
+          "cvConst": false,
+          "cvVolatile": false,
+          "refQual": null,
+          "inner": null,
+          "virt": null,
+          "packs": false,
+          "default": null,
+          "init": null,
+          "defaultDelete": null,
+          "tipoNoDeclarador": false,
+          "temSufixoAntes": false,
+          "absAntesDoNome": false
+        }
+      ],
+      "decl": {
+        "kind": "ClassDecl",
+        "specifiers": [
+          "struct"
+        ],
+        "name": "Arr",
+        "members": [
+          {
+            "kind": "VariableDecl",
+            "specifiers": [
+              "int"
+            ],
+            "declarators": [
+              {
+                "kind": "Declarator",
+                "name": "a",
+                "ptr": [],
+                "array": [
+                  {
+                    "kind": "Identifier",
+                    "name": "N"
+                  }
+                ],
+                "params": [],
+                "temParams": false,
+                "cvConst": false,
+                "cvVolatile": false,
+                "refQual": null,
+                "inner": null,
+                "virt": null,
+                "packs": false,
+                "default": null,
+                "init": null,
+                "defaultDelete": null,
+                "tipoNoDeclarador": false,
+                "temSufixoAntes": false,
+                "absAntesDoNome": false
+              }
+            ],
+            "init": null
+          }
+        ],
+        "tagKind": "struct",
+        "bases": []
+      }
+    }
+  ]
+}

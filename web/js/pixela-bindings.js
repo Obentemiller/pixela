@@ -22,6 +22,9 @@ const Pixela = (() => {
   let on = null;        // Uint8Array, pw*ph
   let cellColor = null; // Array of "r,g,b" strings, cols*rows
   let t = 0;
+  let clearCount = 0;   // quantos clear() já rodaram — usado pelo z-buffer
+                        // dos letreiros 3D (js/text.js) para saber quando
+                        // zerar a profundidade sem precisar de newFrame().
 
   const BRAILLE_BIT = [[0, 1, 2, 6], [3, 4, 5, 7]];
 
@@ -41,7 +44,12 @@ const Pixela = (() => {
   function idx(x, y) { return y * pw + x; }
   function cellIdx(cx, cy) { return cy * grid.cols + cx; }
 
-  function clear() { on.fill(0); }
+  function clear() { on.fill(0); clearCount++; }
+
+  /** Quantas vezes clear() foi chamado desde o último bind(). O motor de
+   *  letreiros 3D (js/text.js) compara esse valor a cada quadro para zerar o
+   *  z-buffer na hora certa — equivale ao r3d.newFrame() do Renderer3D C++. */
+  function clearCountFn() { return clearCount; }
 
   function setPixel(x, y, isOn, r, g, b) {
     x |= 0; y |= 0;
@@ -135,7 +143,7 @@ const Pixela = (() => {
   }
 
   return {
-    bind, setTime, time, width, height, clear, setPixel, getPixel,
+    bind, setTime, time, width, height, clear, clearCount: clearCountFn, setPixel, getPixel,
     drawLine, drawRect, drawCircle, drawTriangle, present,
   };
 })();

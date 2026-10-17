@@ -1,0 +1,6 @@
+{
+  "erroObrigatorio": "circular.*incluído de .*:\\d+",
+  "nunca": [
+    "Profundidade"
+  ]
+}

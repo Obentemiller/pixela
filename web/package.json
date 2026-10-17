@@ -1,0 +1,31 @@
+{
+  "type": "module",
+  "name": "web",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "node --test tests/unit/*.test.js",
+    "test:browser": "playwright test",
+    "test:all": "npm run test && npm run test:browser",
+    "serve": "python3 -m http.server 8080 --bind 127.0.0.1",
+    "gen-estado": "node tests/tools/gen-estado.mjs",
+    "gen-sha256sums": "node tests/tools/gen-sha256sums.mjs",
+    "verify-reports": "node tests/tools/verify-reports.mjs",
+    "mutantes-pp": "node tests/tools/mutantes-pp.mjs",
+    "a3:validate": "node tests/tools/validate-fixtures.mjs --versao v2",
+    "a3:diff-parse": "node tests/tools/diff-parse.mjs --versao v2",
+    "a3:diff-ast": "node tests/tools/diff-ast.mjs --versao v2",
+    "s1": "node spikes/s1-harness.mjs --saida spikes/s1-resultado.md"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@playwright/test": "^1.64.0"
+  }
+}

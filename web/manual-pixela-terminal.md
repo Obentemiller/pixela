@@ -211,6 +211,89 @@ o ângulo dele **na mão**, em variáveis suas, e passe pra
 `pix_mesh_set_angle()` de novo depois do reset — senão sua rotação
 "esquece" tudo a cada quadro, tipo peixinho dourado "ksksksksk".
 
+### Letreiros 2D e 3D (`js/text.js`)
+
+Escrever texto na tela sem fonte de verdade, sem bitmap e sem `std::string`:
+a fonte é **vetorial** (cada letra é um punhado de linhas, estilo plotter /
+letreiro de neon), então a mesma letra serve pro 2D (vira pixel Braille) e
+pro 3D (vira fio ou barra extrudada). Gira, escala e anda sem drama.
+
+O truque é o mesmo do `pix_mesh_*`: você **cria** o letreiro uma vez e recebe
+um `id` (um `int`). Depois mexe nele por esse `id`. Quem faz a conta pesada é
+o JS, o seu C++ só dá as ordens.
+
+Tem A-Z (minúscula vira maiúscula, fonte de 1998 não tem minúscula),
+0-9, pontuação comum e **acentos do português** (`Á À Â Ã É Ê Í Ó Õ Ú Ç Ñ`...).
+`\n` quebra linha. Caractere sem glifo vira uma caixinha, o famoso "tofu".
+
+**2D — coordenadas em pixels, ângulos em radianos (positivo = sentido horário)**
+
+| Função | O que faz |
+|---|---|
+| `pix_text_create("texto")` | cria o letreiro, devolve o `id` |
+| `pix_text_set_string(id, "novo")` | troca o texto |
+| `pix_text_set_pos(id, x, y)` | posição do **pivô** (o ponto em volta do qual ele gira) |
+| `pix_text_set_size(id, s)` | altura da letra maiúscula, em pixels |
+| `pix_text_set_angle(id, a)` | ângulo absoluto |
+| `pix_text_set_color(id, r, g, b)` | cor |
+| `pix_text_set_thickness(id, t)` | espessura do traço em pixels (1 = fino) |
+| `pix_text_set_align(id, a)` | `PIX_ALIGN_LEFT` / `CENTER` / `RIGHT`: onde o pivô fica no texto |
+| `pix_text_set_spacing(id, letras, linhas)` | multiplicadores de espaçamento (1.0 = normal) |
+| `pix_text_set_velocity(id, vx, vy)` | pixels por segundo |
+| `pix_text_set_spin(id, s)` | giro automático, radianos por segundo |
+| `pix_text_set_edge(id, e)` | na borda da tela: `PIX_EDGE_NONE` / `WRAP` (letreiro de ônibus) / `BOUNCE` (protetor de tela) |
+| `pix_text_set_wave(id, amp, defasagem, vel)` | cada letra sobe e desce, defasada da vizinha (`amp` 0 desliga) |
+| `pix_text_update(id, dt)` / `pix_text_draw(id)` | move / desenha um letreiro |
+| `pix_text_update_all(dt)` / `pix_text_draw_all()` | move / desenha **todos** |
+| `pix_text_x(id)`, `_y`, `_angle`, `_width`, `_height` | lê o estado atual (`double`) |
+| `pix_text_remove(id)` / `pix_text_clear_all()` | apaga um / todos |
+| `pix_text_draw_at("FPS", x, y, size, ang, r, g, b)` | texto avulso, sem guardar `id` (HUD, contador...) |
+
+**3D — a câmera fica na origem olhando pra +Z (`z` = distância dela)**
+
+| Função | O que faz |
+|---|---|
+| `pix_text3d_create("texto")` | cria (nasce em `z = 8`), devolve o `id` |
+| `pix_text3d_set_pos(id, x, y, z)` | centro do texto no mundo |
+| `pix_text3d_set_size(id, s)` | altura da letra, em unidades de mundo |
+| `pix_text3d_set_angle(id, rx, ry, rz)` | rotação absoluta por eixo (ordem X, Y, Z) |
+| `pix_text3d_set_spin(id, sx, sy, sz)` | giro automático por eixo (rad/s) |
+| `pix_text3d_set_velocity(id, vx, vy, vz)` | movimento automático (unidades/s) |
+| `pix_text3d_set_style(id, s)` | `PIX_STYLE_SOLID` (barras com luz e z-buffer) ou `PIX_STYLE_WIRE` (só arestas, cara de neon, bem mais leve) |
+| `pix_text3d_set_depth(id, extrusão, traço)` | profundidade e espessura do traço (múltiplos do `size`) |
+| `pix_text3d_set_color`, `_align`, `_spacing`, `_wave` | iguais ao 2D (a amplitude da onda é em unidades de mundo) |
+| `pix_text3d_update(id, dt)` / `pix_text3d_draw(id)` | move / desenha (o `draw` devolve quantos pixels pintou) |
+| `pix_text3d_update_all(dt)` / `pix_text3d_draw_all()` | idem, para todos |
+| `pix_text3d_width(id)`, `pix_text3d_remove(id)`, `pix_text3d_clear_all()` | largura / apagar |
+
+Dois detalhes que poupam dor de cabeça:
+
+- O z-buffer dos letreiros 3D **zera sozinho** no primeiro desenho depois de
+  cada `pix_clear()`. É só limpar, desenhar e apresentar, sem `newFrame()`.
+- `pix_mesh_set_focal(f)` vale também pros letreiros 3D: câmera é uma só.
+
+Exemplo completo (2D e 3D) nas entradas **Letreiros 2D** e **Letreiros 3D** do
+menu de exemplos. O esqueleto de um quadro é sempre este:
+
+```cpp
+double last = pix_time();
+while (true) {
+    double now = pix_time();
+    double dt = now - last;  last = now;
+
+    pix_clear();
+    pix_text_update_all(dt);   // anda, gira, ondula, bate na borda
+    pix_text_draw_all();
+    pix_present();
+}
+```
+
+Os letreiros funcionam **nos dois motores** — tanto no compilador próprio
+(`js/cpp/`, o caminho padrão) quanto no JSCPP legado. As duas implementações
+do texto são o mesmo `js/text.js`: o Runner injeta as funções em JS puro
+(`TextEngine.api`) e o JSCPP registra as mesmas assinaturas via
+`TextEngine.install()`. Não há duas implementações para divergirem.
+
 ## 9. Passo a passo: sua primeira animação
 
 1. Todo programa começa com `#include <pixela.h>` e um `int main()`

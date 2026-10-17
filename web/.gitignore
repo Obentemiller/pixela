@@ -1,8 +1,10 @@
-# Artefatos de build do Emscripten (regerados sempre a partir de src/*.cpp
-# pelo build.sh / .github/workflows/deploy.yml — não devem ser commitados
-# "às cegas": um binário compilado não é revisável num `git diff`).
-wasm/*.js
-wasm/*.wasm
+node_modules/
+test-results/
+playwright-report/
+.DS_Store
 
-# Mantém a pasta no git mesmo com o conteúdo acima ignorado.
-!wasm/.gitkeep
+# Logs de evidência NÃO são ignorados: o protocolo exige que cada porta
+# tenha o .log correspondente versionado, com sha256 verificável.
+# Qualquer outro .log do projeto continua fora.
+*.log
+!reports/*.log

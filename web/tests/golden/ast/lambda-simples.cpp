@@ -1,0 +1,1 @@
+int f() { auto l = [](int x) { return x; }; return l(1); }

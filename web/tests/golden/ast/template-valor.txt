@@ -1,0 +1,1 @@
+template<typename int, typename N> struct Arr {int a[N]; }

@@ -1,0 +1,1 @@
+void f(int a) { if (a) g(); else if (b) h(); else i(); }

@@ -1,0 +1,959 @@
+[
+  {
+    "grupo": "decimal",
+    "fonte": "0",
+    "tipo": null
+  },
+  {
+    "grupo": "decimal",
+    "fonte": "1",
+    "tipo": null
+  },
+  {
+    "grupo": "decimal",
+    "fonte": "7",
+    "tipo": null
+  },
+  {
+    "grupo": "decimal",
+    "fonte": "9",
+    "tipo": null
+  },
+  {
+    "grupo": "decimal",
+    "fonte": "10",
+    "tipo": null
+  },
+  {
+    "grupo": "decimal",
+    "fonte": "42",
+    "tipo": null
+  },
+  {
+    "grupo": "decimal",
+    "fonte": "100",
+    "tipo": null
+  },
+  {
+    "grupo": "decimal",
+    "fonte": "255",
+    "tipo": null
+  },
+  {
+    "grupo": "decimal",
+    "fonte": "256",
+    "tipo": null
+  },
+  {
+    "grupo": "decimal",
+    "fonte": "1000",
+    "tipo": null
+  },
+  {
+    "grupo": "decimal",
+    "fonte": "1023",
+    "tipo": null
+  },
+  {
+    "grupo": "decimal",
+    "fonte": "1024",
+    "tipo": null
+  },
+  {
+    "grupo": "decimal",
+    "fonte": "32767",
+    "tipo": null
+  },
+  {
+    "grupo": "decimal",
+    "fonte": "32768",
+    "tipo": null
+  },
+  {
+    "grupo": "decimal",
+    "fonte": "65535",
+    "tipo": null
+  },
+  {
+    "grupo": "decimal",
+    "fonte": "65536",
+    "tipo": null
+  },
+  {
+    "grupo": "decimal",
+    "fonte": "2147483647",
+    "tipo": null
+  },
+  {
+    "grupo": "decimal",
+    "fonte": "2147483648L",
+    "tipo": null
+  },
+  {
+    "grupo": "decimal",
+    "fonte": "2147483649L",
+    "tipo": null
+  },
+  {
+    "grupo": "decimal",
+    "fonte": "2147483648",
+    "tipo": null
+  },
+  {
+    "grupo": "decimal",
+    "fonte": "4294967295",
+    "tipo": null
+  },
+  {
+    "grupo": "decimal",
+    "fonte": "9223372036854775807LL",
+    "tipo": null
+  },
+  {
+    "grupo": "hex",
+    "fonte": "0x0",
+    "tipo": null
+  },
+  {
+    "grupo": "hex",
+    "fonte": "0x1",
+    "tipo": null
+  },
+  {
+    "grupo": "hex",
+    "fonte": "0xF",
+    "tipo": null
+  },
+  {
+    "grupo": "hex",
+    "fonte": "0x1F",
+    "tipo": null
+  },
+  {
+    "grupo": "hex",
+    "fonte": "0xFF",
+    "tipo": null
+  },
+  {
+    "grupo": "hex",
+    "fonte": "0x100",
+    "tipo": null
+  },
+  {
+    "grupo": "hex",
+    "fonte": "0xFFFF",
+    "tipo": null
+  },
+  {
+    "grupo": "hex",
+    "fonte": "0x7FFFFFFF",
+    "tipo": null
+  },
+  {
+    "grupo": "hex",
+    "fonte": "0x80000000",
+    "tipo": null
+  },
+  {
+    "grupo": "hex",
+    "fonte": "0xFFFFFFFF",
+    "tipo": null
+  },
+  {
+    "grupo": "hex",
+    "fonte": "0x1FFFFFFFF",
+    "tipo": null
+  },
+  {
+    "grupo": "hex",
+    "fonte": "0xFFFFFFFFU",
+    "tipo": null
+  },
+  {
+    "grupo": "hex",
+    "fonte": "0x1FFFFFFFFU",
+    "tipo": null
+  },
+  {
+    "grupo": "octal",
+    "fonte": "00",
+    "tipo": null
+  },
+  {
+    "grupo": "octal",
+    "fonte": "01",
+    "tipo": null
+  },
+  {
+    "grupo": "octal",
+    "fonte": "07",
+    "tipo": null
+  },
+  {
+    "grupo": "octal",
+    "fonte": "010",
+    "tipo": null
+  },
+  {
+    "grupo": "octal",
+    "fonte": "077",
+    "tipo": null
+  },
+  {
+    "grupo": "octal",
+    "fonte": "0777",
+    "tipo": null
+  },
+  {
+    "grupo": "octal",
+    "fonte": "07777777",
+    "tipo": null
+  },
+  {
+    "grupo": "octal",
+    "fonte": "0777777777",
+    "tipo": null
+  },
+  {
+    "grupo": "binario",
+    "fonte": "0b0",
+    "tipo": null
+  },
+  {
+    "grupo": "binario",
+    "fonte": "0b1",
+    "tipo": null
+  },
+  {
+    "grupo": "binario",
+    "fonte": "0b10",
+    "tipo": null
+  },
+  {
+    "grupo": "binario",
+    "fonte": "0b1010",
+    "tipo": null
+  },
+  {
+    "grupo": "binario",
+    "fonte": "0b11111111",
+    "tipo": null
+  },
+  {
+    "grupo": "binario",
+    "fonte": "0b100000000",
+    "tipo": null
+  },
+  {
+    "grupo": "binario",
+    "fonte": "0b11111111111111111111111111111111",
+    "tipo": null
+  },
+  {
+    "grupo": "binario",
+    "fonte": "0b100000000000000000000000000000000",
+    "tipo": null
+  },
+  {
+    "grupo": "separador",
+    "fonte": "1'000",
+    "tipo": null
+  },
+  {
+    "grupo": "separador",
+    "fonte": "1'234'567",
+    "tipo": null
+  },
+  {
+    "grupo": "separador",
+    "fonte": "0x1F'FF",
+    "tipo": null
+  },
+  {
+    "grupo": "separador",
+    "fonte": "0b1010'1010",
+    "tipo": null
+  },
+  {
+    "grupo": "separador",
+    "fonte": "1'0'0'0",
+    "tipo": null
+  },
+  {
+    "grupo": "sufixo",
+    "fonte": "7u",
+    "tipo": null
+  },
+  {
+    "grupo": "sufixo",
+    "fonte": "7U",
+    "tipo": null
+  },
+  {
+    "grupo": "sufixo",
+    "fonte": "7l",
+    "tipo": null
+  },
+  {
+    "grupo": "sufixo",
+    "fonte": "7L",
+    "tipo": null
+  },
+  {
+    "grupo": "sufixo",
+    "fonte": "7ul",
+    "tipo": null
+  },
+  {
+    "grupo": "sufixo",
+    "fonte": "7UL",
+    "tipo": null
+  },
+  {
+    "grupo": "sufixo",
+    "fonte": "7lu",
+    "tipo": null
+  },
+  {
+    "grupo": "sufixo",
+    "fonte": "7LU",
+    "tipo": null
+  },
+  {
+    "grupo": "sufixo",
+    "fonte": "7ll",
+    "tipo": null
+  },
+  {
+    "grupo": "sufixo",
+    "fonte": "7LL",
+    "tipo": null
+  },
+  {
+    "grupo": "sufixo",
+    "fonte": "7ull",
+    "tipo": null
+  },
+  {
+    "grupo": "sufixo",
+    "fonte": "7ULL",
+    "tipo": null
+  },
+  {
+    "grupo": "sufixo",
+    "fonte": "0u",
+    "tipo": null
+  },
+  {
+    "grupo": "sufixo",
+    "fonte": "0U",
+    "tipo": null
+  },
+  {
+    "grupo": "float",
+    "fonte": "1.5",
+    "tipo": null
+  },
+  {
+    "grupo": "float",
+    "fonte": "0.5",
+    "tipo": null
+  },
+  {
+    "grupo": "float",
+    "fonte": "1.",
+    "tipo": null
+  },
+  {
+    "grupo": "float",
+    "fonte": "3.14159",
+    "tipo": null
+  },
+  {
+    "grupo": "float",
+    "fonte": "1e3",
+    "tipo": null
+  },
+  {
+    "grupo": "float",
+    "fonte": "1E3",
+    "tipo": null
+  },
+  {
+    "grupo": "float",
+    "fonte": "1e-3",
+    "tipo": null
+  },
+  {
+    "grupo": "float",
+    "fonte": "1.5e+2",
+    "tipo": null
+  },
+  {
+    "grupo": "float",
+    "fonte": "1.e3",
+    "tipo": null
+  },
+  {
+    "grupo": "float",
+    "fonte": ".5",
+    "tipo": null
+  },
+  {
+    "grupo": "float",
+    "fonte": "0.1",
+    "tipo": null
+  },
+  {
+    "grupo": "float",
+    "fonte": "0.001",
+    "tipo": null
+  },
+  {
+    "grupo": "float",
+    "fonte": "12345.6789",
+    "tipo": null
+  },
+  {
+    "grupo": "float",
+    "fonte": "1.5e0",
+    "tipo": null
+  },
+  {
+    "grupo": "float",
+    "fonte": "9.99e2",
+    "tipo": null
+  },
+  {
+    "grupo": "float",
+    "fonte": "0e0",
+    "tipo": null
+  },
+  {
+    "grupo": "float",
+    "fonte": "100.0",
+    "tipo": null
+  },
+  {
+    "grupo": "float",
+    "fonte": "3.0f",
+    "tipo": null
+  },
+  {
+    "grupo": "float",
+    "fonte": "0.5F",
+    "tipo": null
+  },
+  {
+    "grupo": "float",
+    "fonte": "2.25e-2",
+    "tipo": null
+  },
+  {
+    "grupo": "float",
+    "fonte": "1e100",
+    "tipo": null
+  },
+  {
+    "grupo": "float",
+    "fonte": "1e-100",
+    "tipo": null
+  },
+  {
+    "grupo": "float",
+    "fonte": "1234567890.123456",
+    "tipo": null
+  },
+  {
+    "grupo": "float",
+    "fonte": "0.125",
+    "tipo": null
+  },
+  {
+    "grupo": "float",
+    "fonte": "255.0",
+    "tipo": null
+  },
+  {
+    "grupo": "float",
+    "fonte": "0.0",
+    "tipo": null
+  },
+  {
+    "grupo": "float",
+    "fonte": "2.718281828",
+    "tipo": null
+  },
+  {
+    "grupo": "float",
+    "fonte": "1e10",
+    "tipo": null
+  },
+  {
+    "grupo": "float",
+    "fonte": "1e-10",
+    "tipo": null
+  },
+  {
+    "grupo": "float-sufixo",
+    "fonte": "1.5f",
+    "tipo": null
+  },
+  {
+    "grupo": "float-sufixo",
+    "fonte": "1.5F",
+    "tipo": null
+  },
+  {
+    "grupo": "float-sufixo",
+    "fonte": "1.0L",
+    "tipo": null
+  },
+  {
+    "grupo": "float-sufixo",
+    "fonte": "1e3L",
+    "tipo": null
+  },
+  {
+    "grupo": "float-sufixo",
+    "fonte": "7.0L",
+    "tipo": null
+  },
+  {
+    "grupo": "char",
+    "fonte": "'A'",
+    "tipo": null
+  },
+  {
+    "grupo": "char",
+    "fonte": "'a'",
+    "tipo": null
+  },
+  {
+    "grupo": "char",
+    "fonte": "'0'",
+    "tipo": null
+  },
+  {
+    "grupo": "char",
+    "fonte": "' '",
+    "tipo": null
+  },
+  {
+    "grupo": "char",
+    "fonte": "'\\n'",
+    "tipo": null
+  },
+  {
+    "grupo": "char",
+    "fonte": "'\\t'",
+    "tipo": null
+  },
+  {
+    "grupo": "char",
+    "fonte": "'\\r'",
+    "tipo": null
+  },
+  {
+    "grupo": "char",
+    "fonte": "'\\0'",
+    "tipo": null
+  },
+  {
+    "grupo": "char",
+    "fonte": "'\\a'",
+    "tipo": null
+  },
+  {
+    "grupo": "char",
+    "fonte": "'\\b'",
+    "tipo": null
+  },
+  {
+    "grupo": "char",
+    "fonte": "'\\f'",
+    "tipo": null
+  },
+  {
+    "grupo": "char",
+    "fonte": "'\\v'",
+    "tipo": null
+  },
+  {
+    "grupo": "char",
+    "fonte": "'\\\\'",
+    "tipo": null
+  },
+  {
+    "grupo": "char",
+    "fonte": "'\\''",
+    "tipo": null
+  },
+  {
+    "grupo": "char",
+    "fonte": "'\"'",
+    "tipo": null
+  },
+  {
+    "grupo": "char",
+    "fonte": "'?'",
+    "tipo": null
+  },
+  {
+    "grupo": "char",
+    "fonte": "'\\x41'",
+    "tipo": null
+  },
+  {
+    "grupo": "char",
+    "fonte": "'\\101'",
+    "tipo": null
+  },
+  {
+    "grupo": "char",
+    "fonte": "'~'",
+    "tipo": null
+  },
+  {
+    "grupo": "char",
+    "fonte": "'@'",
+    "tipo": null
+  },
+  {
+    "grupo": "char",
+    "fonte": "'`'",
+    "tipo": null
+  },
+  {
+    "grupo": "char",
+    "fonte": "'_'",
+    "tipo": null
+  },
+  {
+    "grupo": "char",
+    "fonte": "'+'",
+    "tipo": null
+  },
+  {
+    "grupo": "char",
+    "fonte": "'='",
+    "tipo": null
+  },
+  {
+    "grupo": "char",
+    "fonte": "'{'",
+    "tipo": null
+  },
+  {
+    "grupo": "char",
+    "fonte": "'|'",
+    "tipo": null
+  },
+  {
+    "grupo": "char",
+    "fonte": "'}'",
+    "tipo": null
+  },
+  {
+    "grupo": "char",
+    "fonte": "'\\x7A'",
+    "tipo": null
+  },
+  {
+    "grupo": "char",
+    "fonte": "'\\x30'",
+    "tipo": null
+  },
+  {
+    "grupo": "char",
+    "fonte": "'\\177'",
+    "tipo": null
+  },
+  {
+    "grupo": "char-prefixo",
+    "fonte": "u8'a'",
+    "tipo": null
+  },
+  {
+    "grupo": "char-prefixo",
+    "fonte": "u'a'",
+    "tipo": null
+  },
+  {
+    "grupo": "char-prefixo",
+    "fonte": "U'a'",
+    "tipo": null
+  },
+  {
+    "grupo": "char-prefixo",
+    "fonte": "L'a'",
+    "tipo": null
+  },
+  {
+    "grupo": "char-prefixo",
+    "fonte": "L'\\n'",
+    "tipo": null
+  },
+  {
+    "grupo": "string",
+    "fonte": "\"abc\"",
+    "tipo": null
+  },
+  {
+    "grupo": "string",
+    "fonte": "\"\"",
+    "tipo": null
+  },
+  {
+    "grupo": "string",
+    "fonte": "\"a b\"",
+    "tipo": null
+  },
+  {
+    "grupo": "string",
+    "fonte": "\"a\\nb\"",
+    "tipo": null
+  },
+  {
+    "grupo": "string",
+    "fonte": "\"a\\tb\"",
+    "tipo": null
+  },
+  {
+    "grupo": "string",
+    "fonte": "\"a\\\\b\"",
+    "tipo": null
+  },
+  {
+    "grupo": "string",
+    "fonte": "\"\\x41\"",
+    "tipo": null
+  },
+  {
+    "grupo": "string",
+    "fonte": "\"\\101\"",
+    "tipo": null
+  },
+  {
+    "grupo": "string",
+    "fonte": "\"ola mundo\"",
+    "tipo": null
+  },
+  {
+    "grupo": "string",
+    "fonte": "\"\\r\\n\"",
+    "tipo": null
+  },
+  {
+    "grupo": "string",
+    "fonte": "\"\\0\"",
+    "tipo": null
+  },
+  {
+    "grupo": "string",
+    "fonte": "\"\\b\\f\"",
+    "tipo": null
+  },
+  {
+    "grupo": "string",
+    "fonte": "\"\\v\\a\"",
+    "tipo": null
+  },
+  {
+    "grupo": "string",
+    "fonte": "\"\\\"aspas\\\"\"",
+    "tipo": null
+  },
+  {
+    "grupo": "string",
+    "fonte": "\"\\\\\\\\\"",
+    "tipo": null
+  },
+  {
+    "grupo": "string",
+    "fonte": "\"aAbBcC\"",
+    "tipo": null
+  },
+  {
+    "grupo": "string",
+    "fonte": "\"0123456789\"",
+    "tipo": null
+  },
+  {
+    "grupo": "string",
+    "fonte": "\"espaco no meio\"",
+    "tipo": null
+  },
+  {
+    "grupo": "string",
+    "fonte": "\"tab\\there\"",
+    "tipo": null
+  },
+  {
+    "grupo": "string",
+    "fonte": "\"\\x7A\\x7A\"",
+    "tipo": null
+  },
+  {
+    "grupo": "string-prefixo",
+    "fonte": "u8\"ab\"",
+    "tipo": null
+  },
+  {
+    "grupo": "string-prefixo",
+    "fonte": "u\"ab\"",
+    "tipo": null
+  },
+  {
+    "grupo": "string-prefixo",
+    "fonte": "U\"ab\"",
+    "tipo": null
+  },
+  {
+    "grupo": "string-prefixo",
+    "fonte": "L\"ab\"",
+    "tipo": null
+  },
+  {
+    "grupo": "combinacao",
+    "fonte": "0x0u",
+    "tipo": null
+  },
+  {
+    "grupo": "combinacao",
+    "fonte": "0xFFu",
+    "tipo": null
+  },
+  {
+    "grupo": "combinacao",
+    "fonte": "0xFFFFFFFFUL",
+    "tipo": null
+  },
+  {
+    "grupo": "combinacao",
+    "fonte": "010u",
+    "tipo": null
+  },
+  {
+    "grupo": "combinacao",
+    "fonte": "077L",
+    "tipo": null
+  },
+  {
+    "grupo": "combinacao",
+    "fonte": "0b1111u",
+    "tipo": null
+  },
+  {
+    "grupo": "combinacao",
+    "fonte": "0xFF'FFu",
+    "tipo": null
+  },
+  {
+    "grupo": "combinacao",
+    "fonte": "1'0UL",
+    "tipo": null
+  },
+  {
+    "grupo": "combinacao",
+    "fonte": "42ull",
+    "tipo": null
+  },
+  {
+    "grupo": "combinacao",
+    "fonte": "42llu",
+    "tipo": null
+  },
+  {
+    "grupo": "combinacao",
+    "fonte": "5uL",
+    "tipo": null
+  },
+  {
+    "grupo": "combinacao",
+    "fonte": "0xFFUL",
+    "tipo": null
+  },
+  {
+    "grupo": "combinacao",
+    "fonte": "4294967296u",
+    "tipo": null
+  },
+  {
+    "grupo": "combinacao",
+    "fonte": "2147483647U",
+    "tipo": null
+  },
+  {
+    "grupo": "combinacao",
+    "fonte": "2147483648u",
+    "tipo": null
+  },
+  {
+    "grupo": "combinacao",
+    "fonte": "9223372036854775807u",
+    "tipo": null
+  },
+  {
+    "grupo": "combinacao",
+    "fonte": "18446744073709551615ull",
+    "tipo": null
+  },
+  {
+    "grupo": "combinacao",
+    "fonte": "0x1FFFFFFFFUL",
+    "tipo": null
+  },
+  {
+    "grupo": "limite",
+    "fonte": "127",
+    "tipo": null
+  },
+  {
+    "grupo": "limite",
+    "fonte": "128",
+    "tipo": null
+  },
+  {
+    "grupo": "limite",
+    "fonte": "0x7fffffff",
+    "tipo": null
+  },
+  {
+    "grupo": "limite",
+    "fonte": "2147483648LL",
+    "tipo": null
+  },
+  {
+    "grupo": "limite",
+    "fonte": "4294967295LL",
+    "tipo": null
+  },
+  {
+    "grupo": "limite",
+    "fonte": "0b1111111111111111111111111111111",
+    "tipo": null
+  },
+  {
+    "grupo": "limite",
+    "fonte": "0b10000000000000000000000000000000",
+    "tipo": null
+  },
+  {
+    "grupo": "limite",
+    "fonte": "0b111111111111111111111111111111111",
+    "tipo": null
+  },
+  {
+    "grupo": "operador-unario",
+    "fonte": "-128",
+    "tipo": null,
+    "nota": "o sinal é o operador unário de menos; o literal é 128 (int)"
+  },
+  {
+    "grupo": "float-virgula",
+    "fonte": "1,5",
+    "tipo": null,
+    "nota": "em C++ a vírgula é o operador vírgula; não existe literal \"1,5\""
+  }
+]

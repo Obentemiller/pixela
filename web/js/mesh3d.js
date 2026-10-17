@@ -67,7 +67,8 @@ const Mesh3D = (() => {
     if (p.z <= 0.05) return null; // atrás da câmera, mesmo corte de Renderer3D::project
     const f = focal > 0 ? focal : w * 0.9;
     const scale = f / p.z;
-    return { sx: w * 0.5 + p.x * scale, sy: h * 0.5 - p.y * scale };
+    // z vai junto (igual ao Proj do C++): o z-buffer dos letreiros 3D (js/text.js) precisa dele
+    return { sx: w * 0.5 + p.x * scale, sy: h * 0.5 - p.y * scale, z: p.z };
   }
 
   /** Transforms every vertex (rotate X→Y→Z, then translate by pos — same
@@ -94,7 +95,7 @@ const Mesh3D = (() => {
     return drawn;
   }
 
-  return { reset, addVertex, addEdge, setPos, setAngle, spin, setFocal, draw };
+  return { reset, addVertex, addEdge, setPos, setAngle, spin, setFocal, draw, rotateX, rotateY, rotateZ, project };
 })();
 
 window.Mesh3D = Mesh3D;

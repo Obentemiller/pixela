@@ -1,0 +1,1 @@
+lib.hpp inclui common.hpp: o `..` do segundo include e relativo a LIB, nao ao principal.

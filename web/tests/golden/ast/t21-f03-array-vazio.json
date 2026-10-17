@@ -1,0 +1,44 @@
+{
+  "kind": "TranslationUnit",
+  "decls": [
+    {
+      "kind": "VariableDecl",
+      "specifiers": [
+        "int"
+      ],
+      "declarators": [
+        {
+          "kind": "Declarator",
+          "name": "a",
+          "ptr": [],
+          "array": [
+            {
+              "kind": "Literal",
+              "value": 3,
+              "literalKind": "int",
+              "text": "3"
+            }
+          ],
+          "params": [],
+          "temParams": false,
+          "cvConst": false,
+          "cvVolatile": false,
+          "refQual": null,
+          "inner": null,
+          "virt": null,
+          "packs": false,
+          "default": null,
+          "init": null,
+          "defaultDelete": null,
+          "tipoNoDeclarador": false,
+          "temSufixoAntes": false,
+          "absAntesDoNome": false
+        }
+      ],
+      "init": {
+        "kind": "InitList",
+        "elements": []
+      }
+    }
+  ]
+}

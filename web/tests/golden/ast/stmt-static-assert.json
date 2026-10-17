@@ -1,0 +1,64 @@
+{
+  "kind": "TranslationUnit",
+  "decls": [
+    {
+      "kind": "StaticAssertDecl",
+      "cond": {
+        "kind": "Binary",
+        "op": "==",
+        "left": {
+          "kind": "Sizeof",
+          "target": {
+            "kind": "TypeId",
+            "expr": {
+              "kind": "Declarator",
+              "name": null,
+              "ptr": [],
+              "array": [],
+              "params": [],
+              "temParams": false,
+              "cvConst": false,
+              "cvVolatile": false,
+              "refQual": null,
+              "inner": null,
+              "virt": null,
+              "packs": false,
+              "default": null,
+              "init": null,
+              "defaultDelete": null,
+              "tipoNoDeclarador": false,
+              "specifierText": "int",
+              "specifiers": [
+                "int"
+              ]
+            },
+            "isType": true
+          },
+          "isType": true
+        },
+        "right": {
+          "kind": "Literal",
+          "value": 4,
+          "literalKind": "int",
+          "text": "4"
+        }
+      },
+      "message": null
+    },
+    {
+      "kind": "StaticAssertDecl",
+      "cond": {
+        "kind": "Literal",
+        "value": true,
+        "literalKind": "bool",
+        "text": "true"
+      },
+      "message": {
+        "kind": "Literal",
+        "value": "ok",
+        "literalKind": "string",
+        "text": null
+      }
+    }
+  ]
+}

@@ -1,0 +1,2 @@
+struct T { T(); T& operator=(const T&); };
+void f(T x) { x = {1, 2}; }

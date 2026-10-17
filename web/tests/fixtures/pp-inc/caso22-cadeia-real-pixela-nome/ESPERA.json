@@ -1,0 +1,8 @@
+{
+  "umaVez": [
+    "class Canvas { public: void clear(); };"
+  ],
+  "nunca": [
+    "DECOY"
+  ]
+}

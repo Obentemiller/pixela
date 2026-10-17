@@ -1,0 +1,1 @@
+arquivo vazio de guarda: existe so para que `dir1/` exista no disco

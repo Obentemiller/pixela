@@ -1,0 +1,1 @@
+`../lib.hpp` a partir de `src/`: precisa do diretorio do INCLUDER, nao o do principal.

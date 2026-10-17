@@ -1,65 +1,59 @@
-(function () {
-  const canvas = document.getElementById('terminal-canvas');
-  const container = document.getElementById('terminal-container');
-  const editor = document.getElementById('code-editor');
-  const runBtn = document.getElementById('runBtn');
-  const stopBtn = document.getElementById('stopBtn');
-  const resetBtn = document.getElementById('resetBtn');
-  const exampleSelect = document.getElementById('exampleSelect');
-  const consoleOut = document.getElementById('console-output');
-  const fpsLabel = document.getElementById('fps');
-  const gridSizeLabel = document.getElementById('grid-size');
-  const statusMsg = document.getElementById('status-msg');
-  const engineMode = document.getElementById('engine-mode');
+import { Runner } from './runner.js';
 
-  const grid = new TerminalGrid(canvas, container, {
-    cellAspect: 0.56,
-    targetCellHeight: 16,
-    // IMPORTANT: this precisa ser uma function normal (não arrow function).
-    // O construtor de TerminalGrid chama `this.onResize(...)` de forma síncrona
-    // (dentro de _recalculate, chamado ainda dentro do `new TerminalGrid(...)`),
-    // ou seja, ANTES da atribuição à const `grid` terminar. Uma arrow function
-    // tentaria capturar `grid` do escopo externo, que ainda está na "temporal
-    // dead zone" nesse instante -> ReferenceError. Usando `function` normal,
-    // `this` é a própria instância (pois é chamada como `this.onResize(...)`),
-    // então não precisamos referenciar `grid` aqui dentro.
-    onResize: function (cols, rows) {
-      gridSizeLabel.textContent = `Grade: ${cols}x${rows} (pixels: ${cols * 2}x${rows * 4})`;
-      Pixela.bind(this); // resolution changed -> reallocate the JS-side pixel buffer
-    },
-  });
-  Pixela.bind(grid);
+const canvas = document.getElementById('terminal-canvas');
+const container = document.getElementById('terminal-container');
+const editor = document.getElementById('code-editor');
+const runBtn = document.getElementById('runBtn');
+const stopBtn = document.getElementById('stopBtn');
+const resetBtn = document.getElementById('resetBtn');
+const exampleSelect = document.getElementById('exampleSelect');
+const consoleOut = document.getElementById('console-output');
+const fpsLabel = document.getElementById('fps');
+const gridSizeLabel = document.getElementById('grid-size');
+const statusMsg = document.getElementById('status-msg');
+const engineMode = document.getElementById('engine-mode');
 
-  function log(msg, cls) {
-    const line = document.createElement('div');
-    if (cls) line.className = cls;
-    line.textContent = msg;
-    consoleOut.appendChild(line);
-    consoleOut.scrollTop = consoleOut.scrollHeight;
-  }
+const grid = new TerminalGrid(canvas, container, {
+  cellAspect: 0.56,
+  targetCellHeight: 16,
+  onResize: function (cols, rows) {
+    gridSizeLabel.textContent = `Grade: ${cols}x${rows} (pixels: ${cols * 2}x${rows * 4})`;
+    Pixela.bind(this);
+  },
+});
+Pixela.bind(grid);
 
-  function clearLog() { consoleOut.innerHTML = ''; }
+function log(msg, cls) {
+  const line = document.createElement('div');
+  if (cls) line.className = cls;
+  line.textContent = msg;
+  consoleOut.appendChild(line);
+  consoleOut.scrollTop = consoleOut.scrollHeight;
+}
 
-  function setRunningUI(isRunning) {
-    runBtn.disabled = isRunning;
-    stopBtn.disabled = !isRunning;
-    statusMsg.textContent = isRunning ? 'Executando…' : 'Parado.';
-  }
+function clearLog() { consoleOut.innerHTML = ''; }
 
-  function stopAll() {
-    Interpreter.stop();
-    WasmLoader.stop();
-    setRunningUI(false);
-  }
+function setRunningUI(isRunning) {
+  runBtn.disabled = isRunning;
+  stopBtn.disabled = !isRunning;
+  statusMsg.textContent = isRunning ? 'Executando…' : 'Parado.';
+}
 
-  function loadExample(key) {
-    if (key.startsWith('wasm:')) {
-      const name = key.slice(5);
-      editor.value =
-        `// "${name}" é um exemplo compilado a partir da sua biblioteca real\n` +
-        `// (src/pixela.hpp, sem nenhuma alteração) para WebAssembly.\n` +
-        `// Veja o código-fonte completo em:\n` +
-        `//   src/shaders/volumetric.cpp\n` +
+function stopAll() {
+  Interpreter.stop();
+  WasmLoader.stop();
+  Runner.stop();
+  setRunningUI(false);
+}
+
+function loadExample(key) {
+  if (key.startsWith('wasm:')) {
+    const name = key.slice(5);
+    editor.value =
+      `// "${name}" é um exemplo compilado a partir da sua biblioteca real\n` +
+      `// (src/pixela.hpp, sem nenhuma alteração) para WebAssembly.\n` +
+      `// Veja o código-fonte completo em:\n` +
+      `//   src/shaders/volumetric.cpp\n` +
         `//   src/examples/mesh3d.cpp\n` +
         `//   src/examples/particles.cpp\n` +
         `//\n` +
@@ -94,15 +88,16 @@
       } catch (e) {
         log(e.message, 'err');
         log('Dica: rode build/build.sh (requer emscripten) para gerar os arquivos em wasm/, ' +
-            'ou use o workflow do GitHub Actions incluso no repositório.', 'warn');
+          'ou use o workflow do GitHub Actions incluso no repositório.', 'warn');
         setRunningUI(false);
       }
       return;
     }
 
-    engineMode.textContent = 'Motor: JSCPP (interpretado, 100% no navegador)';
+    // Motor: código C++ compilado pelo nosso compilador (parse → codegen → JS)
+    engineMode.textContent = 'Motor: Pixela JS (compilado, 100% no navegador)';
     setRunningUI(true);
-    Interpreter.run(editor.value, {
+    Runner.compileAndRun(editor.value, {
       onLog: (s) => log(s),
       onFps: (fps) => { fpsLabel.textContent = `FPS: ${fps}`; },
       onError: (msg) => { log('Erro: ' + msg, 'err'); setRunningUI(false); },
@@ -128,4 +123,3 @@
   // initial state
   loadExample(exampleSelect.value);
   log('Pronto. Edite o script e clique em "Executar" (ou Ctrl+Enter).');
-})();

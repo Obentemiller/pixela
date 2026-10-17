@@ -1,0 +1,105 @@
+{
+  "kind": "TranslationUnit",
+  "decls": [
+    {
+      "kind": "TemplateDecl",
+      "params": [
+        {
+          "kind": "Declarator",
+          "name": "T",
+          "ptr": [],
+          "array": [],
+          "params": [],
+          "temParams": false,
+          "cvConst": false,
+          "cvVolatile": false,
+          "refQual": null,
+          "inner": null,
+          "virt": null,
+          "packs": false,
+          "default": null,
+          "init": null,
+          "defaultDelete": null,
+          "tipoNoDeclarador": false,
+          "temSufixoAntes": false,
+          "absAntesDoNome": false
+        }
+      ],
+      "decl": {
+        "kind": "ClassDecl",
+        "specifiers": [
+          "struct"
+        ],
+        "name": "V",
+        "members": [
+          {
+            "kind": "VariableDecl",
+            "specifiers": [
+              "T"
+            ],
+            "declarators": [
+              {
+                "kind": "Declarator",
+                "name": "x",
+                "ptr": [],
+                "array": [],
+                "params": [],
+                "temParams": false,
+                "cvConst": false,
+                "cvVolatile": false,
+                "refQual": null,
+                "inner": null,
+                "virt": null,
+                "packs": false,
+                "default": null,
+                "init": null,
+                "defaultDelete": null,
+                "tipoNoDeclarador": false,
+                "temSufixoAntes": false,
+                "absAntesDoNome": false
+              }
+            ],
+            "init": null
+          }
+        ],
+        "tagKind": "struct",
+        "bases": []
+      }
+    },
+    {
+      "kind": "VariableDecl",
+      "specifiers": [
+        "V"
+      ],
+      "declarators": [
+        {
+          "kind": "Declarator",
+          "name": "p",
+          "ptr": [
+            {
+              "kind": "*",
+              "cvConst": false,
+              "cvVolatile": false
+            }
+          ],
+          "array": [],
+          "params": [],
+          "temParams": false,
+          "cvConst": false,
+          "cvVolatile": false,
+          "refQual": null,
+          "inner": null,
+          "virt": null,
+          "packs": false,
+          "default": null,
+          "init": null,
+          "defaultDelete": null,
+          "tipoNoDeclarador": false,
+          "temSufixoAntes": false,
+          "absAntesDoNome": false
+        }
+      ],
+      "init": null
+    }
+  ]
+}

@@ -1,0 +1,97 @@
+{
+  "kind": "TranslationUnit",
+  "decls": [
+    {
+      "kind": "FunctionDecl",
+      "specifiers": [
+        "int"
+      ],
+      "declarator": {
+        "kind": "Declarator",
+        "name": "f",
+        "ptr": [],
+        "array": [],
+        "params": [],
+        "temParams": true,
+        "cvConst": false,
+        "cvVolatile": false,
+        "refQual": null,
+        "inner": null,
+        "virt": null,
+        "packs": false,
+        "default": null,
+        "init": null,
+        "defaultDelete": null,
+        "tipoNoDeclarador": false,
+        "temSufixoAntes": false,
+        "absAntesDoNome": false,
+        "baseInit": null
+      },
+      "body": {
+        "kind": "CompoundStmt",
+        "stmts": [
+          {
+            "kind": "ReturnStmt",
+            "expr": {
+              "kind": "Binary",
+              "op": "-",
+              "left": {
+                "kind": "Binary",
+                "op": "+",
+                "left": {
+                  "kind": "Literal",
+                  "value": 1,
+                  "literalKind": "int",
+                  "text": "1"
+                },
+                "right": {
+                  "kind": "Binary",
+                  "op": "*",
+                  "left": {
+                    "kind": "Literal",
+                    "value": 2,
+                    "literalKind": "int",
+                    "text": "2"
+                  },
+                  "right": {
+                    "kind": "Literal",
+                    "value": 3,
+                    "literalKind": "int",
+                    "text": "3"
+                  }
+                }
+              },
+              "right": {
+                "kind": "Binary",
+                "op": "%",
+                "left": {
+                  "kind": "Binary",
+                  "op": "/",
+                  "left": {
+                    "kind": "Literal",
+                    "value": 4,
+                    "literalKind": "int",
+                    "text": "4"
+                  },
+                  "right": {
+                    "kind": "Literal",
+                    "value": 5,
+                    "literalKind": "int",
+                    "text": "5"
+                  }
+                },
+                "right": {
+                  "kind": "Literal",
+                  "value": 6,
+                  "literalKind": "int",
+                  "text": "6"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "templateParams": []
+    }
+  ]
+}

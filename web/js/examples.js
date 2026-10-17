@@ -520,6 +520,126 @@ int main() {
     return 0;
 }
 `,
+
+  text2d: `#include <pixela.h>
+#include <cmath>
+
+// LETREIROS 2D. Cada letreiro é criado uma vez (a função devolve um "id") e
+// depois você mexe nele pelo id: posição, tamanho, ângulo, cor, espessura e
+// movimento. O motor faz o resto:
+//   pix_text_update_all(dt)  -> move todo mundo (velocidade, giro, onda, bordas)
+//   pix_text_draw_all()      -> desenha todo mundo
+// Ângulos em radianos (positivo = sentido horário). Tamanho = altura da letra
+// maiúscula em pixels. Aceita acentos (ÁÃÇÉ...) e quebra de linha com \\n.
+int main() {
+    int w = pix_width();
+    int h = pix_height();
+
+    // 1) Título no centro: o ângulo a gente muda na mão, a cada quadro
+    int titulo = pix_text_create("PIXELA");
+    pix_text_set_pos(titulo, w / 2, h / 2);
+    pix_text_set_size(titulo, w / 9.0);
+    pix_text_set_color(titulo, 255, 200, 60);
+    pix_text_set_thickness(titulo, 2);
+
+    // 2) Onda: cada letra sobe e desce, defasada da vizinha
+    int onda = pix_text_create("ONDA ESTÁ NO AR");
+    pix_text_set_pos(onda, w / 2, 14);
+    pix_text_set_size(onda, 8);
+    pix_text_set_color(onda, 90, 220, 255);
+    pix_text_set_wave(onda, 4.0, 0.6, 5.0);   // amplitude, defasagem, velocidade
+
+    // 3) Letreiro de ônibus: anda pra esquerda e reaparece do outro lado
+    int onibus = pix_text_create("ANIMAÇÃO EM BRAILLE - 8 PIXELS POR CARACTERE -");
+    pix_text_set_align(onibus, PIX_ALIGN_LEFT);
+    pix_text_set_pos(onibus, w, h - 10);
+    pix_text_set_size(onibus, 8);
+    pix_text_set_color(onibus, 120, 255, 140);
+    pix_text_set_velocity(onibus, -40.0, 0.0);
+    pix_text_set_edge(onibus, PIX_EDGE_WRAP);
+
+    // 4) Protetor de tela: bate nas bordas e volta
+    int dvd = pix_text_create("BOING");
+    pix_text_set_pos(dvd, 30, 40);
+    pix_text_set_size(dvd, 9);
+    pix_text_set_color(dvd, 255, 110, 200);
+    pix_text_set_velocity(dvd, 38.0, 26.0);
+    pix_text_set_edge(dvd, PIX_EDGE_BOUNCE);
+
+    // 5) Girando sozinho (spin = radianos por segundo), no canto
+    int gira = pix_text_create("GIRA");
+    pix_text_set_pos(gira, w - 28, 42);
+    pix_text_set_size(gira, 9);
+    pix_text_set_color(gira, 255, 255, 255);
+    pix_text_set_spin(gira, 2.0);
+
+    double last = pix_time();
+    while (true) {
+        double now = pix_time();
+        double dt = now - last;
+        last = now;
+
+        // ângulo manual: balança 15 graus pra cada lado
+        pix_text_set_angle(titulo, 0.26 * sin(now * 1.3));
+
+        pix_clear();
+        pix_text_update_all(dt);
+        pix_text_draw_all();
+        pix_present();
+    }
+    return 0;
+}
+`,
+
+  text3d: `#include <pixela.h>
+#include <cmath>
+
+// LETREIROS 3D. Mesma ideia do 2D, mas as letras ganham profundidade.
+// A câmera fica na origem olhando pra +Z; z é a distância dela.
+//   Estilo SOLID: barras sólidas com luz e z-buffer (mais bonito)
+//   Estilo WIRE : só as arestas, com cara de neon (mais leve)
+// pix_text3d_set_depth(id, extrusão, espessura_do_traço): múltiplos do tamanho.
+// Os ângulos são rotações em X, Y e Z (radianos); spin é radianos por segundo.
+int main() {
+    // 1) Título sólido, girando em Y
+    int titulo = pix_text3d_create("PIXELA");
+    pix_text3d_set_pos(titulo, 0.0, 1.4, 9.0);
+    pix_text3d_set_size(titulo, 1.1);
+    pix_text3d_set_color(titulo, 120, 220, 255);
+    pix_text3d_set_depth(titulo, 0.4, 0.13);
+    pix_text3d_set_spin(titulo, 0.0, 0.8, 0.0);
+
+    // 2) Onda em 3D: cada letra sobe e desce
+    int onda = pix_text3d_create("ONDA 3D");
+    pix_text3d_set_pos(onda, 0.0, -0.1, 8.0);
+    pix_text3d_set_size(onda, 0.6);
+    pix_text3d_set_color(onda, 255, 180, 70);
+    pix_text3d_set_wave(onda, 0.25, 0.7, 4.0);   // amplitude (mundo), defasagem, velocidade
+
+    // 3) Fio de neon (wireframe) passeando e girando em X e Z
+    int fio = pix_text3d_create("WIRE");
+    pix_text3d_set_style(fio, PIX_STYLE_WIRE);
+    pix_text3d_set_size(fio, 0.7);
+    pix_text3d_set_color(fio, 255, 110, 200);
+    pix_text3d_set_spin(fio, 1.1, 0.0, 0.0);
+
+    double last = pix_time();
+    while (true) {
+        double now = pix_time();
+        double dt = now - last;
+        last = now;
+
+        // posição manual: o fio vai e volta na horizontal
+        pix_text3d_set_pos(fio, 2.4 * sin(now * 0.9), -1.6, 8.0);
+
+        pix_clear();
+        pix_text3d_update_all(dt);
+        pix_text3d_draw_all();
+        pix_present();
+    }
+    return 0;
+}
+`,
 };
 
 window.EXAMPLES = EXAMPLES;

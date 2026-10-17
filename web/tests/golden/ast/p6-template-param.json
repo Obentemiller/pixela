@@ -1,0 +1,98 @@
+{
+  "kind": "TranslationUnit",
+  "decls": [
+    {
+      "kind": "TemplateDecl",
+      "params": [
+        {
+          "kind": "Declarator",
+          "name": "T",
+          "ptr": [],
+          "array": [],
+          "params": [],
+          "temParams": false,
+          "cvConst": false,
+          "cvVolatile": false,
+          "refQual": null,
+          "inner": null,
+          "virt": null,
+          "packs": false,
+          "default": null,
+          "init": null,
+          "defaultDelete": null,
+          "tipoNoDeclarador": false,
+          "temSufixoAntes": false,
+          "absAntesDoNome": false
+        }
+      ],
+      "decl": {
+        "kind": "FunctionDecl",
+        "specifiers": [
+          "void"
+        ],
+        "declarator": {
+          "kind": "Declarator",
+          "name": "g",
+          "ptr": [],
+          "array": [],
+          "params": [],
+          "temParams": true,
+          "cvConst": false,
+          "cvVolatile": false,
+          "refQual": null,
+          "inner": null,
+          "virt": null,
+          "packs": false,
+          "default": null,
+          "init": null,
+          "defaultDelete": null,
+          "tipoNoDeclarador": false,
+          "temSufixoAntes": false,
+          "absAntesDoNome": false,
+          "baseInit": null
+        },
+        "body": {
+          "kind": "CompoundStmt",
+          "stmts": [
+            {
+              "kind": "DeclStmt",
+              "decl": {
+                "kind": "VariableDecl",
+                "specifiers": [
+                  "T"
+                ],
+                "declarators": [
+                  {
+                    "kind": "Declarator",
+                    "name": "x",
+                    "ptr": [],
+                    "array": [],
+                    "params": [],
+                    "temParams": false,
+                    "cvConst": false,
+                    "cvVolatile": false,
+                    "refQual": null,
+                    "inner": null,
+                    "virt": null,
+                    "packs": false,
+                    "default": null,
+                    "init": null,
+                    "defaultDelete": null,
+                    "tipoNoDeclarador": false,
+                    "temSufixoAntes": false,
+                    "absAntesDoNome": false
+                  }
+                ],
+                "init": {
+                  "kind": "InitList",
+                  "elements": []
+                }
+              }
+            }
+          ]
+        },
+        "templateParams": []
+      }
+    }
+  ]
+}

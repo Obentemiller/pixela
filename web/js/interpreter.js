@@ -121,6 +121,12 @@ const Interpreter = (() => {
         rt.regFunc((rt, _t, r, g_, b) => rt.val(tInt, Mesh3D.draw(
             Pixela.width(), Pixela.height(), r.v, g_.v, b.v, Pixela.drawLine)),
           g, 'pix_mesh_draw', [tInt, tInt, tInt], tInt);
+
+        // --- pix_text_* / pix_text3d_*: letreiros 2D e 3D (js/text.js).
+        // Mesma ideia do pix_mesh_*: o C++ só cria um letreiro (recebe um id),
+        // ajusta posição/tamanho/ângulo/movimento e manda desenhar; layout,
+        // trigonometria e z-buffer rodam nativos em JS.
+        TextEngine.install(rt);
       }
     };
   }

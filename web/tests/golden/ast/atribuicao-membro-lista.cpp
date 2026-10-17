@@ -1,0 +1,1 @@
+class C { public: C() : x_(1), y_{2} {} int x_, y_; };

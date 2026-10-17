@@ -1,0 +1,3 @@
+auto x = 42;
+auto& r = x;
+const auto& cr = x;

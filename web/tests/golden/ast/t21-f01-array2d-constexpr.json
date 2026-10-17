@@ -1,0 +1,110 @@
+{
+  "kind": "TranslationUnit",
+  "decls": [
+    {
+      "kind": "VariableDecl",
+      "specifiers": [
+        "constexpr",
+        "int"
+      ],
+      "declarators": [
+        {
+          "kind": "Declarator",
+          "name": "kBrailleBit",
+          "ptr": [],
+          "array": [
+            {
+              "kind": "Literal",
+              "value": 2,
+              "literalKind": "int",
+              "text": "2"
+            },
+            {
+              "kind": "Literal",
+              "value": 4,
+              "literalKind": "int",
+              "text": "4"
+            }
+          ],
+          "params": [],
+          "temParams": false,
+          "cvConst": false,
+          "cvVolatile": false,
+          "refQual": null,
+          "inner": null,
+          "virt": null,
+          "packs": false,
+          "default": null,
+          "init": null,
+          "defaultDelete": null,
+          "tipoNoDeclarador": false,
+          "temSufixoAntes": false,
+          "absAntesDoNome": false
+        }
+      ],
+      "init": {
+        "kind": "InitList",
+        "elements": [
+          {
+            "kind": "InitList",
+            "elements": [
+              {
+                "kind": "Literal",
+                "value": 0,
+                "literalKind": "int",
+                "text": "0"
+              },
+              {
+                "kind": "Literal",
+                "value": 1,
+                "literalKind": "int",
+                "text": "1"
+              },
+              {
+                "kind": "Literal",
+                "value": 2,
+                "literalKind": "int",
+                "text": "2"
+              },
+              {
+                "kind": "Literal",
+                "value": 6,
+                "literalKind": "int",
+                "text": "6"
+              }
+            ]
+          },
+          {
+            "kind": "InitList",
+            "elements": [
+              {
+                "kind": "Literal",
+                "value": 3,
+                "literalKind": "int",
+                "text": "3"
+              },
+              {
+                "kind": "Literal",
+                "value": 4,
+                "literalKind": "int",
+                "text": "4"
+              },
+              {
+                "kind": "Literal",
+                "value": 5,
+                "literalKind": "int",
+                "text": "5"
+              },
+              {
+                "kind": "Literal",
+                "value": 7,
+                "literalKind": "int",
+                "text": "7"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

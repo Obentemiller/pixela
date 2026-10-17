@@ -1,0 +1,41 @@
+{
+  "kind": "TranslationUnit",
+  "decls": [
+    {
+      "kind": "NamespaceDecl",
+      "name": null,
+      "decls": [
+        {
+          "kind": "VariableDecl",
+          "specifiers": [
+            "int"
+          ],
+          "declarators": [
+            {
+              "kind": "Declarator",
+              "name": "a",
+              "ptr": [],
+              "array": [],
+              "params": [],
+              "temParams": false,
+              "cvConst": false,
+              "cvVolatile": false,
+              "refQual": null,
+              "inner": null,
+              "virt": null,
+              "packs": false,
+              "default": null,
+              "init": null,
+              "defaultDelete": null,
+              "tipoNoDeclarador": false,
+              "temSufixoAntes": false,
+              "absAntesDoNome": false
+            }
+          ],
+          "init": null
+        }
+      ],
+      "inline": false
+    }
+  ]
+}

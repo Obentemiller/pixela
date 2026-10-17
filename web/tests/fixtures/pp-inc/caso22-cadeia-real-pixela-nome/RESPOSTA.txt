@@ -1,0 +1,1 @@
+A mesma cadeia, com o include escrito na grafia canonica `src/pixela.hpp` em vez do relativo. Tem de reconhecer o MESMO arquivo: `Canvas` entra 1 vez e o decoy nunca entra.

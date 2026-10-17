@@ -1,0 +1,1 @@
+`#include MACRO_ARQUIVO`: o nome do header vem de uma macro, não do fonte.

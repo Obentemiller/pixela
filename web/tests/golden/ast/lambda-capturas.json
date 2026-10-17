@@ -1,0 +1,238 @@
+{
+  "kind": "TranslationUnit",
+  "decls": [
+    {
+      "kind": "FunctionDecl",
+      "specifiers": [
+        "int"
+      ],
+      "declarator": {
+        "kind": "Declarator",
+        "name": "f",
+        "ptr": [],
+        "array": [],
+        "params": [],
+        "temParams": true,
+        "cvConst": false,
+        "cvVolatile": false,
+        "refQual": null,
+        "inner": null,
+        "virt": null,
+        "packs": false,
+        "default": null,
+        "init": null,
+        "defaultDelete": null,
+        "tipoNoDeclarador": false,
+        "temSufixoAntes": false,
+        "absAntesDoNome": false,
+        "baseInit": null
+      },
+      "body": {
+        "kind": "CompoundStmt",
+        "stmts": [
+          {
+            "kind": "DeclStmt",
+            "decl": {
+              "kind": "VariableDecl",
+              "specifiers": [
+                "auto"
+              ],
+              "declarators": [
+                {
+                  "kind": "Declarator",
+                  "name": "a",
+                  "ptr": [],
+                  "array": [],
+                  "params": [],
+                  "temParams": false,
+                  "cvConst": false,
+                  "cvVolatile": false,
+                  "refQual": null,
+                  "inner": null,
+                  "virt": null,
+                  "packs": false,
+                  "default": null,
+                  "init": null,
+                  "defaultDelete": null,
+                  "tipoNoDeclarador": false,
+                  "temSufixoAntes": false,
+                  "absAntesDoNome": false
+                }
+              ],
+              "init": {
+                "kind": "Lambda",
+                "captures": [],
+                "params": [],
+                "body": {
+                  "kind": "CompoundStmt",
+                  "stmts": [
+                    {
+                      "kind": "ReturnStmt",
+                      "expr": {
+                        "kind": "Literal",
+                        "value": 1,
+                        "literalKind": "int",
+                        "text": "1"
+                      }
+                    }
+                  ]
+                },
+                "qualifiers": [],
+                "retType": null
+              }
+            }
+          },
+          {
+            "kind": "DeclStmt",
+            "decl": {
+              "kind": "VariableDecl",
+              "specifiers": [
+                "auto"
+              ],
+              "declarators": [
+                {
+                  "kind": "Declarator",
+                  "name": "b",
+                  "ptr": [],
+                  "array": [],
+                  "params": [],
+                  "temParams": false,
+                  "cvConst": false,
+                  "cvVolatile": false,
+                  "refQual": null,
+                  "inner": null,
+                  "virt": null,
+                  "packs": false,
+                  "default": null,
+                  "init": null,
+                  "defaultDelete": null,
+                  "tipoNoDeclarador": false,
+                  "temSufixoAntes": false,
+                  "absAntesDoNome": false
+                }
+              ],
+              "init": {
+                "kind": "Lambda",
+                "captures": [
+                  {
+                    "kind": "porRef",
+                    "name": ""
+                  }
+                ],
+                "params": [],
+                "body": {
+                  "kind": "CompoundStmt",
+                  "stmts": [
+                    {
+                      "kind": "ReturnStmt",
+                      "expr": {
+                        "kind": "Literal",
+                        "value": 2,
+                        "literalKind": "int",
+                        "text": "2"
+                      }
+                    }
+                  ]
+                },
+                "qualifiers": [],
+                "retType": null
+              }
+            }
+          },
+          {
+            "kind": "DeclStmt",
+            "decl": {
+              "kind": "VariableDecl",
+              "specifiers": [
+                "auto"
+              ],
+              "declarators": [
+                {
+                  "kind": "Declarator",
+                  "name": "c",
+                  "ptr": [],
+                  "array": [],
+                  "params": [],
+                  "temParams": false,
+                  "cvConst": false,
+                  "cvVolatile": false,
+                  "refQual": null,
+                  "inner": null,
+                  "virt": null,
+                  "packs": false,
+                  "default": null,
+                  "init": null,
+                  "defaultDelete": null,
+                  "tipoNoDeclarador": false,
+                  "temSufixoAntes": false,
+                  "absAntesDoNome": false
+                }
+              ],
+              "init": {
+                "kind": "Lambda",
+                "captures": [
+                  {
+                    "kind": "this"
+                  }
+                ],
+                "params": [],
+                "body": {
+                  "kind": "CompoundStmt",
+                  "stmts": [
+                    {
+                      "kind": "ReturnStmt",
+                      "expr": {
+                        "kind": "Literal",
+                        "value": 3,
+                        "literalKind": "int",
+                        "text": "3"
+                      }
+                    }
+                  ]
+                },
+                "qualifiers": [],
+                "retType": null
+              }
+            }
+          },
+          {
+            "kind": "ReturnStmt",
+            "expr": {
+              "kind": "Binary",
+              "op": "+",
+              "left": {
+                "kind": "Binary",
+                "op": "+",
+                "left": {
+                  "kind": "Call",
+                  "callee": {
+                    "kind": "Identifier",
+                    "name": "a"
+                  },
+                  "args": []
+                },
+                "right": {
+                  "kind": "Call",
+                  "callee": {
+                    "kind": "Identifier",
+                    "name": "b"
+                  },
+                  "args": []
+                }
+              },
+              "right": {
+                "kind": "Call",
+                "callee": {
+                  "kind": "Identifier",
+                  "name": "c"
+                },
+                "args": []
+              }
+            }
+          }
+        ]
+      },
+      "templateParams": []
+    }
+  ]
+}

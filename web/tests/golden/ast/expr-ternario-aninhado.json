@@ -1,0 +1,103 @@
+{
+  "kind": "TranslationUnit",
+  "decls": [
+    {
+      "kind": "FunctionDecl",
+      "specifiers": [
+        "int"
+      ],
+      "declarator": {
+        "kind": "Declarator",
+        "name": "f",
+        "ptr": [],
+        "array": [],
+        "params": [
+          {
+            "kind": "VariableDecl",
+            "specifiers": [
+              "int"
+            ],
+            "declarators": [
+              {
+                "kind": "Declarator",
+                "name": "a",
+                "ptr": [],
+                "array": [],
+                "params": [],
+                "temParams": false,
+                "cvConst": false,
+                "cvVolatile": false,
+                "refQual": null,
+                "inner": null,
+                "virt": null,
+                "packs": false,
+                "default": null,
+                "init": null,
+                "defaultDelete": null,
+                "tipoNoDeclarador": false,
+                "temSufixoAntes": false,
+                "absAntesDoNome": false
+              }
+            ],
+            "init": null
+          }
+        ],
+        "temParams": true,
+        "cvConst": false,
+        "cvVolatile": false,
+        "refQual": null,
+        "inner": null,
+        "virt": null,
+        "packs": false,
+        "default": null,
+        "init": null,
+        "defaultDelete": null,
+        "tipoNoDeclarador": false,
+        "temSufixoAntes": false,
+        "absAntesDoNome": false,
+        "baseInit": null
+      },
+      "body": {
+        "kind": "CompoundStmt",
+        "stmts": [
+          {
+            "kind": "ReturnStmt",
+            "expr": {
+              "kind": "Ternary",
+              "cond": {
+                "kind": "Identifier",
+                "name": "a"
+              },
+              "then": {
+                "kind": "Ternary",
+                "cond": {
+                  "kind": "Identifier",
+                  "name": "a"
+                },
+                "then": {
+                  "kind": "Literal",
+                  "value": 1,
+                  "literalKind": "int",
+                  "text": "1"
+                },
+                "other": {
+                  "kind": "Literal",
+                  "value": 2,
+                  "literalKind": "int",
+                  "text": "2"
+                }
+              },
+              "other": {
+                "kind": "Literal",
+                "value": 3,
+                "literalKind": "int",
+                "text": "3"
+              }
+            }
+          }
+        ]
+      },
+      "templateParams": []
+    }
+  ]
+}

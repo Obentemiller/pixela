@@ -1,0 +1,1 @@
+struct S {operatorint(){return 1;} }
