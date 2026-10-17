@@ -1,3 +1,0 @@
-/* bloco
-multilinha */
-int x;

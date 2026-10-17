@@ -1,1 +1,0 @@
-struct S {}; int f(S s) { return typeid(s) == typeid(S); }

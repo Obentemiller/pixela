@@ -1,1 +1,0 @@
-class C { public: int a; private: int b; protected: int c; };

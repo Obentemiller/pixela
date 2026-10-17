@@ -1,1 +1,0 @@
-Include com aspas = relativo ao includer; include com <> = sistema. Os dois convivem no mesmo arquivo.

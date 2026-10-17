@@ -1,2 +1,0 @@
-int f() { return 1; }
-void g() { return; }

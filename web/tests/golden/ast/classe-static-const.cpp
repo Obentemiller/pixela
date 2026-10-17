@@ -1,1 +1,0 @@
-struct S { static const int N = 10; };

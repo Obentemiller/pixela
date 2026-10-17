@@ -1,1 +1,0 @@
-O MESMO arquivo por duas grafias: `dir1/../h.h` e `h.h` sao o mesmo arquivo no disco, e o `#pragma once` faz o segundo include nao entrar. Se a chave usada for a GRAFIA escrita em vez do caminho canonico, o header entra DUAS vezes e a declaracao duplica.

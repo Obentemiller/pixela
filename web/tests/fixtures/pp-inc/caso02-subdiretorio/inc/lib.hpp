@@ -1,1 +1,0 @@
-int dobro(int x);

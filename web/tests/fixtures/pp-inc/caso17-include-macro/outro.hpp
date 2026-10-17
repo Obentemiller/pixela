@@ -1,1 +1,0 @@
-int OUTRO = 1;

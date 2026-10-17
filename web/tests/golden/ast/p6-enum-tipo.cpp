@@ -1,1 +1,0 @@
-enum E { A }; void f() { E v; }

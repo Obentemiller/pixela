@@ -1,1 +1,0 @@
-Inclui um header real do projeto a partir de `examples/`, reproduzindo `src/examples/mesh3d.cpp`.

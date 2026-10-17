@@ -1,1 +1,0 @@
-enum class E {A = 1};

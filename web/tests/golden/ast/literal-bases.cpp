@@ -1,6 +1,0 @@
-int a = 0x1F;
-int b = 077;
-int c = 0b1010;
-int d = 1'000;
-unsigned e = 42u;
-long f = 42L;

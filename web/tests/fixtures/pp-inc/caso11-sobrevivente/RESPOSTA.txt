@@ -1,1 +1,0 @@
-Um `#pragma once` entre includes: tem de sobreviver e nao interromper a resolucao seguinte.

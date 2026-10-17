@@ -1,1 +1,0 @@
-struct S { static int f(); }; int g() { return S::f(); }

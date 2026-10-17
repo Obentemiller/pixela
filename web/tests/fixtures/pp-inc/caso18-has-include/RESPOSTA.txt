@@ -1,1 +1,0 @@
-`__has_include(x)`: 1 se resolve, 0 se não. É o que permite guarded include com fallback.

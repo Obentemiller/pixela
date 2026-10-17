@@ -1,1 +1,0 @@
-int g(); int f() { g(); return 0; }

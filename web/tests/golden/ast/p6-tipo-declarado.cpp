@@ -1,1 +1,0 @@
-struct T {}; void f() { T x{}; }

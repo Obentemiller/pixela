@@ -1,1 +1,0 @@
-using U = ; void f(){U * p;}

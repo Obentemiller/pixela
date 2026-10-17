@@ -1,1 +1,0 @@
-O mesmo header incluidos duas vezes (sem guarda): o g++ aceita e o texto sai duplicado.

@@ -1,1 +1,0 @@
-template<typename T, typename U> void f(T a, U b)

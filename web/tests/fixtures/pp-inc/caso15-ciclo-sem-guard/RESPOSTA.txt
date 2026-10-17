@@ -1,1 +1,0 @@
-Ciclo SEM guard: erro, e a mensagem tem de trazer a cadeia (a.h -> b.h -> a.h) para que se veja onde o ciclo fecha.

@@ -1,1 +1,0 @@
-Ciclo SEM guard e com GRAFIA diferente: o diagnóstico tem de ser de CICULO (com a cadeia), nao de profundidade. No preprocessor pre-A1 a comparacao era entre a grafia escrita e a pilha de caminhos, nunca casava, e o caso terminava em "Profundidade de include excedida (200)".

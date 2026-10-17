@@ -1,2 +1,0 @@
-struct T { T(); T(int); };
-void f() { T x = {}; }
